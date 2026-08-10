@@ -1,0 +1,51 @@
+.education {
+    background: #ffffff;
+}
+
+.education-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 30px;
+}
+
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.education-card {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: center;
+
+    background: #f8fbfe;
+    border: 1px solid #dce8f2;
+    border-left: 5px solid #0b3b70;
+
+    padding: 25px 30px;
+}
+
+.education-year {
+    color: #155a9c;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.education-details h3 {
+    color: #0b3b70;
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.education-details h4 {
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.education-details p {
+    color: #6b7280;
+    font-size: 15px;
+}

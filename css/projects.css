@@ -1,0 +1,231 @@
+.projects {
+    background: #ffffff;
+}
+
+.projects-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 30px;
+}
+
+
+/* Section Heading */
+
+.projects .section-heading {
+    margin-bottom: 40px;
+}
+
+.projects .section-label {
+    color: #155a9c;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.projects .section-heading h2 {
+    color: #0b3b70;
+    font-size: 34px;
+}
+
+
+/* Featured Project */
+
+.featured-project {
+    background: #0b3b70;
+    padding: 50px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+}
+
+.featured-project-content {
+    max-width: 800px;
+}
+
+
+/* Featured Badge */
+
+.project-badge {
+    display: inline-block;
+    color: #0b3b70;
+    background: #eaf3fa;
+    padding: 7px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+
+/* Featured Project Title */
+
+.featured-project h3 {
+    color: #ffffff;
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+
+/* Featured Description */
+
+.featured-project p {
+    color: #dbeafe;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+
+/* Technology Tags */
+
+.project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.project-technologies span {
+    background: #eaf3fa;
+    color: #0b3b70;
+    padding: 8px 13px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* View Project Button */
+
+.project-button {
+    display: inline-block;
+    background: #ffffff;
+    color: #0b3b70;
+
+    padding: 12px 24px;
+
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Featured Project Button Hover */
+
+.featured-project .project-button:hover {
+    background: #eaf3fa;
+    border-color: #eaf3fa;
+    color: #0b3b70;
+}
+
+
+/* Other Projects */
+
+.other-projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+
+/* Project Card */
+
+.project-card {
+    background: #f8fbfe;
+
+    border: 1px solid #dce8f2;
+    border-top: 4px solid #0b3b70;
+
+    padding: 30px;
+
+    border-radius: 4px;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Card Hover */
+
+.project-card:hover {
+    border-color: #155a9c;
+    transform: translateY(-3px);
+}
+
+
+/* Project Number */
+
+.project-number {
+    color: #155a9c;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+
+/* Project Title */
+
+.project-card h3 {
+    color: #0b3b70;
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+
+/* Project Description */
+
+.project-card p {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+
+/* Other Project Button */
+
+.project-card .project-button {
+    background: #0b3b70;
+    color: #ffffff;
+    border-color: #0b3b70;
+
+    margin-top: 5px;
+}
+
+
+/* Other Project Button Hover */
+
+.project-card .project-button:hover {
+    background: #155a9c;
+    border-color: #155a9c;
+    color: #ffffff;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .projects-container {
+        padding: 60px 20px;
+    }
+
+    .featured-project {
+        padding: 30px;
+    }
+
+    .featured-project h3 {
+        font-size: 26px;
+    }
+
+    .other-projects {
+        grid-template-columns: 1fr;
+    }
+
+}

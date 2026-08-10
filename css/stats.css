@@ -1,0 +1,31 @@
+.stats {
+    background: #eaf3fa;
+    border-top: 1px solid #d6e5f2;
+    border-bottom: 1px solid #d6e5f2;
+}
+
+.stats-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 45px 30px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.stat-card h3 {
+    color: #0b3b70;
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.stat-card p {
+    color: #4b5563;
+    font-size: 15px;
+}
