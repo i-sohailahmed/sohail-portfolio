@@ -1,74 +1,519 @@
+/* =========================================================
+   ABOUT SECTION
+   MOBILE FIRST
+   PC + TABLET + PHONE FRIENDLY
+   ========================================================= */
+
+
+/* =========================================================
+   MAIN SECTION
+   ========================================================= */
+
 .about {
+    width: 100%;
+
     background: #ffffff;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
 }
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
 
 .about-container {
+    width: 100%;
     max-width: 1100px;
+
     margin: 0 auto;
-    padding: 80px 30px;
+
+    padding: 50px 15px;
+
+    box-sizing: border-box;
 }
 
-.section-heading {
-    margin-bottom: 40px;
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.about-heading {
+    width: 100%;
+
+    margin: 0 0 35px 0;
+    padding: 0;
+
+    box-sizing: border-box;
 }
 
-.section-label {
+
+/* ABOUT ME LABEL */
+
+.about .section-label {
+    width: 100%;
+
+    margin: 0 0 10px 0;
+    padding: 0;
+
     color: #155a9c;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.6px;
+
+    line-height: 1.4;
 }
 
-.section-heading h2 {
+
+/* MAIN TITLE */
+
+.about-heading h2 {
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0;
+    padding: 0;
+
     color: #0b3b70;
+
     font-size: 34px;
-    line-height: 1.3;
-    max-width: 700px;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    box-sizing: border-box;
+
+    overflow-wrap: break-word;
 }
+
+
+/* =========================================================
+   MAIN CONTENT
+   MOBILE = ONE COLUMN
+   ========================================================= */
 
 .about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 60px;
-    align-items: start;
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+
+    box-sizing: border-box;
 }
+
+
+/* =========================================================
+   ABOUT TEXT
+   ========================================================= */
+
+.about-text {
+    width: 100%;
+    max-width: 100%;
+
+    box-sizing: border-box;
+}
+
 
 .about-text p {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 0 20px 0;
+    padding: 0;
+
     color: #4b5563;
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 18px;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+    box-sizing: border-box;
+
+    overflow-wrap: break-word;
 }
 
-.about-highlight {
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   HIGHLIGHT CARDS
+   ========================================================= */
+
+.about-highlights {
+    width: 100%;
+
     display: flex;
+
     flex-direction: column;
-    gap: 20px;
+
+    gap: 15px;
+
+    box-sizing: border-box;
 }
 
-.highlight-box {
-    background: #eaf3fa;
+
+/* =========================================================
+   INDIVIDUAL CARD
+   ========================================================= */
+
+.about-card {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 22px 20px;
+
+    box-sizing: border-box;
+
+    background: #f1f6fa;
+
     border-left: 4px solid #0b3b70;
-    padding: 25px;
 }
 
-.highlight-box span {
-    display: block;
+
+/* =========================================================
+   CARD LABEL
+   ========================================================= */
+
+.about-card-label {
+    margin: 0 0 9px 0;
+    padding: 0;
+
     color: #155a9c;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    line-height: 1.4;
 }
 
-.highlight-box strong {
-    display: block;
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.about-card h3 {
+    margin: 0 0 8px 0;
+    padding: 0;
+
     color: #0b3b70;
-    font-size: 24px;
-    margin-bottom: 5px;
+
+    font-size: 22px;
+    font-weight: 800;
+
+    line-height: 1.25;
 }
 
-.highlight-box p {
+
+/* =========================================================
+   CARD DESCRIPTION
+   ========================================================= */
+
+.about-card > p:last-child {
+    margin: 0;
+    padding: 0;
+
     color: #4b5563;
-    font-size: 14px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+
+    .about-container {
+        padding: 65px 25px;
+    }
+
+
+    .about-heading {
+        margin-bottom: 40px;
+    }
+
+
+    .about-heading h2 {
+        font-size: 38px;
+    }
+
+
+    .about-content {
+        display: grid;
+
+        grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+
+        gap: 30px;
+
+        align-items: start;
+    }
+
+
+    .about-text p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    .about-highlights {
+        gap: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media screen and (min-width: 901px) {
+
+    .about-container {
+        padding: 80px 30px;
+    }
+
+
+    /* Heading */
+
+    .about-heading {
+        margin-bottom: 50px;
+    }
+
+
+    .about .section-label {
+        font-size: 13px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .about-heading h2 {
+        max-width: 800px;
+
+        font-size: 42px;
+
+        line-height: 1.15;
+    }
+
+
+    /* Main two-column layout */
+
+    .about-content {
+        display: grid;
+
+        grid-template-columns:
+            minmax(0, 1.35fr)
+            minmax(280px, 0.65fr);
+
+        gap: 60px;
+
+        align-items: start;
+    }
+
+
+    /* Text */
+
+    .about-text {
+        max-width: 650px;
+    }
+
+
+    .about-text p {
+        font-size: 16px;
+
+        line-height: 1.8;
+
+        margin-bottom: 22px;
+    }
+
+
+    /* Cards */
+
+    .about-highlights {
+        gap: 18px;
+    }
+
+
+    .about-card {
+        padding: 25px 22px;
+    }
+
+
+    .about-card-label {
+        font-size: 12px;
+    }
+
+
+    .about-card h3 {
+        font-size: 24px;
+    }
+
+
+    .about-card > p:last-child {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+
+    .about-container {
+        padding: 45px 16px;
+    }
+
+
+    /* Heading */
+
+    .about-heading {
+        margin-bottom: 30px;
+    }
+
+
+    .about .section-label {
+        font-size: 10px;
+
+        letter-spacing: 1.4px;
+
+        margin-bottom: 8px;
+    }
+
+
+    .about-heading h2 {
+        font-size: 29px;
+
+        line-height: 1.2;
+    }
+
+
+    /* Content */
+
+    .about-content {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+
+    /* Text */
+
+    .about-text {
+        width: 100%;
+    }
+
+
+    .about-text p {
+        width: 100%;
+
+        font-size: 14px;
+
+        line-height: 1.7;
+
+        margin-bottom: 18px;
+    }
+
+
+    /* Cards */
+
+    .about-highlights {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 14px;
+    }
+
+
+    .about-card {
+        width: 100%;
+
+        padding: 20px 17px;
+
+        border-left-width: 4px;
+    }
+
+
+    .about-card-label {
+        font-size: 10px;
+
+        margin-bottom: 7px;
+    }
+
+
+    .about-card h3 {
+        font-size: 20px;
+
+        margin-bottom: 6px;
+    }
+
+
+    .about-card > p:last-child {
+        font-size: 12px;
+
+        line-height: 1.5;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media screen and (max-width: 380px) {
+
+    .about-container {
+        padding: 40px 13px;
+    }
+
+
+    .about-heading h2 {
+        font-size: 27px;
+    }
+
+
+    .about-text p {
+        font-size: 13px;
+
+        line-height: 1.65;
+    }
+
+
+    .about-card {
+        padding: 18px 15px;
+    }
+
+
+    .about-card h3 {
+        font-size: 19px;
+    }
+
+
+    .about-card > p:last-child {
+        font-size: 11px;
+    }
+
 }
