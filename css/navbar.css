@@ -1,99 +1,123 @@
-/* =========================================
+/* =========================================================
    NAVBAR
-   ========================================= */
+   MOBILE FIRST
+   PC + TABLET + PHONE FRIENDLY
+   ========================================================= */
+
+
+/* =========================================================
+   MAIN NAVBAR
+   ========================================================= */
 
 .navbar {
-    position: sticky;
-    top: 0;
     width: 100%;
+
+    position: relative;
+
+    z-index: 1000;
 
     background: #ffffff;
 
-    border-top: 4px solid #0b3b70;
-    border-bottom: 2px solid #0b3b70;
+    border-top: 3px solid #0b3b70;
+    border-bottom: 1px solid #dce8f2;
 
-    z-index: 1000;
+    box-sizing: border-box;
 }
 
 
-/* =========================================
+/* =========================================================
    NAVBAR CONTAINER
-   ========================================= */
+   ========================================================= */
 
-.nav-container {
+.navbar-container {
+    width: 100%;
     max-width: 1200px;
+
+    min-height: 72px;
+
     margin: 0 auto;
 
-    padding: 18px 30px;
+    padding: 0 30px;
 
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
+
+    justify-content: space-between;
+
+    box-sizing: border-box;
 }
 
 
-/* =========================================
+/* =========================================================
    LOGO
-   ========================================= */
+   ========================================================= */
 
-.nav-logo {
-    text-decoration: none;
+.navbar-logo {
+    display: inline-block;
 
     color: #0b3b70;
 
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 800;
 
-    letter-spacing: 0.3px;
+    line-height: 1.2;
 
-    transition: 0.2s ease;
+    letter-spacing: 0.5px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
 }
 
-.nav-logo:hover {
+.navbar-logo:hover {
     color: #155a9c;
 }
 
 
-/* =========================================
-   NAVIGATION LINKS
-   ========================================= */
+/* =========================================================
+   DESKTOP NAVIGATION
+   ========================================================= */
 
-.nav-links {
+.navbar-desktop {
     display: flex;
+
     align-items: center;
 
+    justify-content: flex-end;
+
     gap: 28px;
+
+    margin-left: 30px;
 }
 
 
-/* Individual links */
-
-.nav-links a {
+.navbar-desktop a {
     position: relative;
 
-    text-decoration: none;
+    display: inline-block;
+
+    padding: 8px 0;
 
     color: #1f2937;
 
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
 
-    padding: 5px 0;
+    line-height: 1.3;
 
-    transition: color 0.2s ease;
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.2s ease;
 }
 
 
-/* Hover */
+/* Desktop hover underline */
 
-.nav-links a:hover {
-    color: #0b3b70;
-}
-
-
-/* Blue underline on hover */
-
-.nav-links a::after {
+.navbar-desktop a::after {
     content: "";
 
     position: absolute;
@@ -106,65 +130,315 @@
 
     background: #0b3b70;
 
-    transition: width 0.2s ease;
+    transition:
+        width 0.2s ease;
 }
 
-.nav-links a:hover::after {
+
+.navbar-desktop a:hover {
+    color: #0b3b70;
+}
+
+
+.navbar-desktop a:hover::after {
     width: 100%;
 }
 
 
-/* =========================================
+/* =========================================================
+   MOBILE NAVIGATION
+   Hidden on desktop
+   ========================================================= */
+
+.navbar-mobile {
+    display: none;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   MOBILE HAMBURGER
+   ========================================================= */
+
+.navbar-toggle {
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce8f2;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    list-style: none;
+
+    box-sizing: border-box;
+}
+
+
+/* Remove default Details marker */
+
+.navbar-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.navbar-toggle::marker {
+    display: none;
+}
+
+
+/* Hamburger lines */
+
+.navbar-toggle span {
+    display: block;
+
+    width: 21px;
+    height: 2px;
+
+    background: #0b3b70;
+
+    border-radius: 2px;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.navbar-mobile-menu {
+    position: absolute;
+
+    top: calc(100% + 1px);
+
+    right: 0;
+
+    width: 220px;
+
+    padding: 8px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: #ffffff;
+
+    border: 1px solid #dce8f2;
+
+    border-top: 3px solid #0b3b70;
+
+    box-shadow: 0 8px 25px rgba(11, 59, 112, 0.12);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MOBILE MENU LINKS
+   ========================================================= */
+
+.navbar-mobile-menu a {
+    display: block;
+
+    width: 100%;
+
+    padding: 13px 14px;
+
+    color: #1f2937;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    text-decoration: none;
+
+    border-radius: 3px;
+
+    box-sizing: border-box;
+}
+
+
+.navbar-mobile-menu a:hover {
+    color: #0b3b70;
+
+    background: #f1f6fa;
+}
+
+
+/* =========================================================
    TABLET
-   ========================================= */
+   ========================================================= */
 
-@media (max-width: 900px) {
+@media screen and (max-width: 950px) and (min-width: 769px) {
 
-    .nav-container {
-        padding: 16px 25px;
+    .navbar-container {
+        padding: 0 22px;
     }
 
-    .nav-links {
-        gap: 20px;
+
+    .navbar-desktop {
+        gap: 18px;
+
+        margin-left: 20px;
     }
 
-    .nav-links a {
+
+    .navbar-desktop a {
+        font-size: 14px;
+    }
+
+
+    .navbar-logo {
+        font-size: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    .navbar {
+        width: 100%;
+
+        border-top-width: 3px;
+
+        overflow: visible;
+    }
+
+
+    /* Container */
+
+    .navbar-container {
+        width: 100%;
+        max-width: 100%;
+
+        min-height: 68px;
+
+        padding: 0 16px;
+
+        margin: 0;
+
+        box-sizing: border-box;
+    }
+
+
+    /* Logo */
+
+    .navbar-logo {
+        font-size: 18px;
+
+        letter-spacing: 0.4px;
+    }
+
+
+    /* Hide desktop menu */
+
+    .navbar-desktop {
+        display: none;
+    }
+
+
+    /* Show mobile menu */
+
+    .navbar-mobile {
+        display: block;
+    }
+
+
+    /* Hamburger */
+
+    .navbar-toggle {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    /* Mobile dropdown */
+
+    .navbar-mobile-menu {
+        width: min(220px, calc(100vw - 32px));
+
+        right: 0;
+
+        padding: 7px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+
+    .navbar-container {
+        min-height: 64px;
+
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+
+    .navbar-logo {
+        font-size: 17px;
+    }
+
+
+    .navbar-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .navbar-mobile-menu {
+        width: calc(100vw - 28px);
+
+        max-width: 220px;
+    }
+
+
+    .navbar-mobile-menu a {
+        padding: 12px 13px;
+
         font-size: 14px;
     }
 
 }
 
 
-/* =========================================
-   MOBILE
-   ========================================= */
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
 
-@media (max-width: 700px) {
+@media screen and (max-width: 360px) {
 
-    .nav-container {
-        flex-direction: column;
-
-        gap: 15px;
-
-        padding: 15px 20px;
+    .navbar-container {
+        padding-left: 12px;
+        padding-right: 12px;
     }
 
-    .nav-logo {
-        font-size: 19px;
-    }
 
-    .nav-links {
-        width: 100%;
-
-        justify-content: center;
-
-        flex-wrap: wrap;
-
-        gap: 15px 20px;
-    }
-
-    .nav-links a {
-        font-size: 14px;
+    .navbar-logo {
+        font-size: 16px;
     }
 
 }
