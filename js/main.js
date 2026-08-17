@@ -5,7 +5,16 @@
 
 
 /* =========================================================
-   SECTION LOADER
+   PREVENT BROWSER FROM RESTORING OLD SCROLL POSITION
+   ========================================================= */
+
+if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+}
+
+
+/* =========================================================
+   SECTIONS TO LOAD
    ========================================================= */
 
 const sections = [
@@ -22,17 +31,33 @@ const sections = [
 
 
 /* =========================================================
-   LOAD ALL SECTIONS
+   LOAD WEBSITE
    ========================================================= */
 
-async function loadSections() {
+async function loadWebsite() {
 
     const page = document.getElementById("page");
 
     if (!page) {
-        console.error("Element #page was not found.");
+
+        console.error(
+            "ERROR: #page element was not found in index.html"
+        );
+
         return;
     }
+
+
+    /*
+     * Keep the page at the top while sections load.
+     */
+
+    window.scrollTo(0, 0);
+
+
+    /*
+     * Load every section.
+     */
 
     for (const section of sections) {
 
@@ -42,59 +67,55 @@ async function loadSections() {
                 `sections/${section}.html`
             );
 
+
             if (!response.ok) {
+
                 console.error(
-                    `Could not load ${section}.html`
+                    `ERROR loading sections/${section}.html`
                 );
 
                 continue;
             }
 
+
             const html = await response.text();
+
 
             page.insertAdjacentHTML(
                 "beforeend",
                 html
             );
 
+
         } catch (error) {
 
             console.error(
-                `Error loading ${section}.html:`,
+                `ERROR loading ${section}.html:`,
                 error
             );
 
         }
+
     }
 
 
     /*
-     * IMPORTANT
-     * After all sections are loaded, always return
-     * the user to the top of the website on first load.
+     * All sections are now loaded.
+     * Start at the top of the website.
      */
 
     window.scrollTo({
         top: 0,
         left: 0,
-        behavior: "auto"
+        behavior: "instant"
     });
 
 
     /*
-     * Prevent browser from restoring an old
-     * scroll position.
+     * Activate navigation.
      */
 
-    document.documentElement.style.scrollBehavior = "auto";
-
-
-    /*
-     * Initialize navigation after the HTML
-     * sections have been loaded.
-     */
-
-    initializeNavigation();
+    setupNavigation();
 
 }
 
@@ -103,29 +124,53 @@ async function loadSections() {
    NAVIGATION
    ========================================================= */
 
-function initializeNavigation() {
-
-    const navLinks =
-        document.querySelectorAll(
-            ".nav-menu a"
-        );
-
-    const navMenu =
-        document.querySelector(
-            ".nav-menu"
-        );
-
-    const navToggle =
-        document.querySelector(
-            ".nav-toggle"
-        );
+function setupNavigation() {
 
 
     /* -----------------------------------------------------
-       NAVBAR LINKS
+       NAV MENU
        ----------------------------------------------------- */
 
-    navLinks.forEach(link => {
+    const navMenu =
+        document.querySelector(".nav-menu");
+
+
+    /* -----------------------------------------------------
+       MOBILE MENU BUTTON
+       ----------------------------------------------------- */
+
+    const navToggle =
+        document.querySelector(".nav-toggle");
+
+
+    /* -----------------------------------------------------
+       NAVIGATION LINKS
+       ----------------------------------------------------- */
+
+    const links =
+        document.querySelectorAll(
+            'a[href^="#"]'
+        );
+
+
+    /*
+     * If navbar wasn't loaded, stop safely.
+     */
+
+    if (!links.length) {
+
+        console.warn(
+            "No navigation links found."
+        );
+
+    }
+
+
+    /* -----------------------------------------------------
+       HANDLE LINKS
+       ----------------------------------------------------- */
+
+    links.forEach(function(link) {
 
         link.addEventListener(
             "click",
@@ -136,16 +181,21 @@ function initializeNavigation() {
 
 
                 /*
-                 * Only handle internal section links.
+                 * Ignore empty # links.
                  */
 
                 if (
                     !targetId ||
-                    !targetId.startsWith("#")
+                    targetId === "#"
                 ) {
+
                     return;
                 }
 
+
+                /*
+                 * Find target section.
+                 */
 
                 const target =
                     document.querySelector(
@@ -153,10 +203,25 @@ function initializeNavigation() {
                     );
 
 
+                /*
+                 * If target doesn't exist,
+                 * don't break the website.
+                 */
+
                 if (!target) {
+
+                    console.warn(
+                        "Target not found:",
+                        targetId
+                    );
+
                     return;
                 }
 
+
+                /*
+                 * Prevent default browser jump.
+                 */
 
                 event.preventDefault();
 
@@ -166,22 +231,26 @@ function initializeNavigation() {
                  */
 
                 if (navMenu) {
+
                     navMenu.classList.remove(
                         "active"
                     );
+
                 }
 
 
                 if (navToggle) {
+
                     navToggle.setAttribute(
                         "aria-expanded",
                         "false"
                     );
+
                 }
 
 
                 /*
-                 * Scroll to requested section.
+                 * Smooth scroll.
                  */
 
                 target.scrollIntoView({
@@ -191,8 +260,7 @@ function initializeNavigation() {
 
 
                 /*
-                 * Update URL without causing
-                 * another automatic browser jump.
+                 * Update URL.
                  */
 
                 history.pushState(
@@ -204,20 +272,23 @@ function initializeNavigation() {
             }
         );
 
-    });
+    }
 
 
     /* -----------------------------------------------------
        MOBILE MENU
        ----------------------------------------------------- */
 
-    if (navToggle && navMenu) {
+    if (
+        navToggle &&
+        navMenu
+    ) {
 
         navToggle.addEventListener(
             "click",
             function() {
 
-                const isOpen =
+                const opened =
                     navMenu.classList.toggle(
                         "active"
                     );
@@ -225,7 +296,9 @@ function initializeNavigation() {
 
                 navToggle.setAttribute(
                     "aria-expanded",
-                    isOpen ? "true" : "false"
+                    opened
+                        ? "true"
+                        : "false"
                 );
 
             }
@@ -233,102 +306,18 @@ function initializeNavigation() {
 
     }
 
-
-    /* -----------------------------------------------------
-       CLOSE MOBILE MENU AFTER CLICK
-       ----------------------------------------------------- */
-
-    navLinks.forEach(link => {
-
-        link.addEventListener(
-            "click",
-            function() {
-
-                if (navMenu) {
-                    navMenu.classList.remove(
-                        "active"
-                    );
-                }
-
-            }
-        );
-
-    });
-
 }
 
 
 /* =========================================================
-   FORCE TOP POSITION ON INITIAL PAGE LOAD
-   ========================================================= */
-
-if ("scrollRestoration" in history) {
-
-    history.scrollRestoration = "manual";
-
-}
-
-
-/*
- * Immediately force the browser to the top.
- */
-
-window.scrollTo(
-    0,
-    0
-);
-
-
-/* =========================================================
-   START WEBSITE
+   START
    ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function() {
 
-        /*
-         * Keep the page at the top while sections
-         * are being loaded.
-         */
-
-        window.scrollTo(
-            0,
-            0
-        );
-
-
-        loadSections();
-
-    }
-);
-
-
-/* =========================================================
-   FINAL SAFETY CHECK
-   ========================================================= */
-
-window.addEventListener(
-    "load",
-    function() {
-
-        /*
-         * If the page was opened without an intentional
-         * section command, start at the hero.
-         */
-
-        if (
-            !window.location.hash ||
-            window.location.hash === "#home"
-        ) {
-
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: "auto"
-            });
-
-        }
+        loadWebsite();
 
     }
 );
