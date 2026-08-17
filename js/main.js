@@ -5,640 +5,330 @@
 
 
 /* =========================================================
-   SECTION CONFIGURATION
+   SECTION LOADER
    ========================================================= */
 
 const sections = [
-
-    {
-        name: "navbar",
-        file: "sections/navbar.html",
-        container: "navbar-container"
-    },
-
-    {
-        name: "hero",
-        file: "sections/hero.html",
-        container: "hero-container"
-    },
-
-    {
-        name: "about",
-        file: "sections/about.html",
-        container: "about-container"
-    },
-
-    {
-        name: "skills",
-        file: "sections/skills.html",
-        container: "skills-container"
-    },
-
-    {
-        name: "education",
-        file: "sections/education.html",
-        container: "education-container"
-    },
-
-    {
-        name: "experience",
-        file: "sections/experience.html",
-        container: "experience-container"
-    },
-
-    {
-        name: "projects",
-        file: "sections/projects.html",
-        container: "projects-container"
-    },
-
-    {
-        name: "contact",
-        file: "sections/contact.html",
-        container: "contact-container"
-    },
-
-    {
-        name: "footer",
-        file: "sections/footer.html",
-        container: "footer-container"
-    }
-
+    "navbar",
+    "hero",
+    "about",
+    "skills",
+    "education",
+    "experience",
+    "projects",
+    "contact",
+    "footer"
 ];
-
-
-/* =========================================================
-   LOAD ONE SECTION
-   ========================================================= */
-
-async function loadSection(section) {
-
-    const container =
-        document.getElementById(section.container);
-
-
-    /* Make sure the container exists */
-
-    if (!container) {
-
-        console.error(
-            "Container not found:",
-            section.container
-        );
-
-        return false;
-
-    }
-
-
-    try {
-
-        const response =
-            await fetch(section.file);
-
-
-        /* Check if file exists */
-
-        if (!response.ok) {
-
-            throw new Error(
-                `HTTP ${response.status}: ${section.file}`
-            );
-
-        }
-
-
-        const html =
-            await response.text();
-
-
-        /* Insert section HTML */
-
-        container.innerHTML = html;
-
-
-        console.log(
-            `Loaded: ${section.file}`
-        );
-
-
-        return true;
-
-
-    } catch (error) {
-
-        console.error(
-            `Failed to load ${section.file}`,
-            error
-        );
-
-
-        return false;
-
-    }
-
-}
 
 
 /* =========================================================
    LOAD ALL SECTIONS
    ========================================================= */
 
-async function loadAllSections() {
+async function loadSections() {
+
+    const page = document.getElementById("page");
+
+    if (!page) {
+        console.error("Element #page was not found.");
+        return;
+    }
 
     for (const section of sections) {
 
-        await loadSection(section);
+        try {
 
-    }
+            const response = await fetch(
+                `sections/${section}.html`
+            );
 
-}
+            if (!response.ok) {
+                console.error(
+                    `Could not load ${section}.html`
+                );
 
+                continue;
+            }
 
-/* =========================================================
-   NAVIGATION TARGET MAP
-   =========================================================
+            const html = await response.text();
 
-   The links use:
+            page.insertAdjacentHTML(
+                "beforeend",
+                html
+            );
 
-       #about
-       #skills
-       #education
-       #experience
-       #projects
-       #contact
+        } catch (error) {
 
-   But the actual containers are:
+            console.error(
+                `Error loading ${section}.html:`,
+                error
+            );
 
-       #about-container
-       #skills-container
-       #education-container
-       #experience-container
-       #projects-container
-       #contact-container
-
-   This map connects the two.
-   ========================================================= */
-
-const navigationTargets = {
-
-    home: "hero-container",
-
-    about: "about-container",
-
-    skills: "skills-container",
-
-    education: "education-container",
-
-    experience: "experience-container",
-
-    projects: "projects-container",
-
-    contact: "contact-container"
-
-};
-
-
-/* =========================================================
-   SCROLL TO SECTION
-   ========================================================= */
-
-function scrollToSection(sectionName) {
-
-    const containerId =
-        navigationTargets[sectionName];
-
-
-    /* If the target isn't in our map, stop */
-
-    if (!containerId) {
-
-        return false;
-
-    }
-
-
-    const target =
-        document.getElementById(containerId);
-
-
-    /* Make sure target exists */
-
-    if (!target) {
-
-        console.error(
-            "Navigation target not found:",
-            containerId
-        );
-
-        return false;
-
+        }
     }
 
 
     /*
-     * Get navbar height.
-     *
-     * This prevents the section heading from being
-     * hidden underneath a fixed/sticky navbar.
+     * IMPORTANT
+     * After all sections are loaded, always return
+     * the user to the top of the website on first load.
      */
 
-    const navbar =
-        document.querySelector(".navbar");
-
-
-    const navbarHeight =
-        navbar
-            ? navbar.offsetHeight
-            : 0;
-
-
-    const targetPosition =
-        target.getBoundingClientRect().top
-        + window.scrollY
-        - navbarHeight
-        - 10;
-
-
     window.scrollTo({
-
-        top: Math.max(targetPosition, 0),
-
-        behavior: "smooth"
-
+        top: 0,
+        left: 0,
+        behavior: "auto"
     });
 
 
-    return true;
+    /*
+     * Prevent browser from restoring an old
+     * scroll position.
+     */
+
+    document.documentElement.style.scrollBehavior = "auto";
+
+
+    /*
+     * Initialize navigation after the HTML
+     * sections have been loaded.
+     */
+
+    initializeNavigation();
 
 }
 
 
 /* =========================================================
-   NAVIGATION CLICK HANDLER
-   =========================================================
-
-   Event delegation is used because the navbar is loaded
-   dynamically by JavaScript.
+   NAVIGATION
    ========================================================= */
 
 function initializeNavigation() {
 
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            /*
-             * Find the closest link that has an href.
-             */
-
-            const link =
-                event.target.closest(
-                    "a[href]"
-                );
-
-
-            /*
-             * Ignore clicks that aren't links.
-             */
-
-            if (!link) {
-
-                return;
-
-            }
-
-
-            const href =
-                link.getAttribute("href");
-
-
-            /*
-             * Ignore external links.
-             *
-             * Examples:
-             *
-             * https://...
-             * mailto:...
-             * tel:...
-             */
-
-            if (
-                !href ||
-                href.startsWith("http://") ||
-                href.startsWith("https://") ||
-                href.startsWith("mailto:") ||
-                href.startsWith("tel:")
-            ) {
-
-                return;
-
-            }
-
-
-            /*
-             * Only process anchor links.
-             */
-
-            if (!href.startsWith("#")) {
-
-                return;
-
-            }
-
-
-            /*
-             * Remove the # symbol.
-             */
-
-            const sectionName =
-                href.substring(1);
-
-
-            /*
-             * Check whether this is one of our
-             * portfolio navigation targets.
-             */
-
-            if (
-                !navigationTargets[
-                    sectionName
-                ]
-            ) {
-
-                return;
-
-            }
-
-
-            /*
-             * Prevent the browser's default jump.
-             */
-
-            event.preventDefault();
-
-
-            /*
-             * Scroll to the correct section.
-             */
-
-            const didScroll =
-                scrollToSection(
-                    sectionName
-                );
-
-
-            /*
-             * Close mobile menu.
-             */
-
-            if (didScroll) {
-
-                closeMobileMenu();
-
-            }
-
-
-            /*
-             * Update URL without reloading
-             * the page.
-             */
-
-            if (
-                window.history &&
-                window.history.pushState
-            ) {
-
-                window.history.pushState(
-                    null,
-                    "",
-                    `#${sectionName}`
-                );
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
-
-function initializeMobileNavigation() {
-
-    /*
-     * Event delegation is used here too.
-     *
-     * This works even though navbar.html is loaded
-     * dynamically.
-     */
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            const menuButton =
-                event.target.closest(
-                    ".nav-toggle"
-                );
-
-
-            if (!menuButton) {
-
-                return;
-
-            }
-
-
-            const navMenu =
-                document.querySelector(
-                    ".nav-menu"
-                );
-
-
-            if (!navMenu) {
-
-                console.error(
-                    "Mobile navigation menu not found."
-                );
-
-                return;
-
-            }
-
-
-            navMenu.classList.toggle(
-                "active"
-            );
-
-
-            menuButton.classList.toggle(
-                "active"
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   CLOSE MOBILE MENU
-   ========================================================= */
-
-function closeMobileMenu() {
+    const navLinks =
+        document.querySelectorAll(
+            ".nav-menu a"
+        );
 
     const navMenu =
         document.querySelector(
             ".nav-menu"
         );
 
-
-    const menuButton =
+    const navToggle =
         document.querySelector(
             ".nav-toggle"
         );
 
 
-    if (navMenu) {
+    /* -----------------------------------------------------
+       NAVBAR LINKS
+       ----------------------------------------------------- */
 
-        navMenu.classList.remove(
-            "active"
-        );
+    navLinks.forEach(link => {
 
-    }
+        link.addEventListener(
+            "click",
+            function(event) {
 
-
-    if (menuButton) {
-
-        menuButton.classList.remove(
-            "active"
-        );
-
-    }
-
-}
+                const targetId =
+                    this.getAttribute("href");
 
 
-/* =========================================================
-   HANDLE INITIAL URL HASH
-   =========================================================
+                /*
+                 * Only handle internal section links.
+                 */
 
-   Example:
-
-       kappa.vercel.app/#projects
-
-   The page will automatically scroll to Projects.
-   ========================================================= */
-
-function handleInitialHash() {
-
-    const hash =
-        window.location.hash;
+                if (
+                    !targetId ||
+                    !targetId.startsWith("#")
+                ) {
+                    return;
+                }
 
 
-    if (!hash) {
-
-        return;
-
-    }
-
-
-    const sectionName =
-        hash.substring(1);
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
 
 
-    if (
-        navigationTargets[
-            sectionName
-        ]
-    ) {
+                if (!target) {
+                    return;
+                }
 
-        /*
-         * Small delay gives the dynamically loaded
-         * sections time to render.
-         */
 
-        setTimeout(
-            function () {
+                event.preventDefault();
 
-                scrollToSection(
-                    sectionName
+
+                /*
+                 * Close mobile menu.
+                 */
+
+                if (navMenu) {
+                    navMenu.classList.remove(
+                        "active"
+                    );
+                }
+
+
+                if (navToggle) {
+                    navToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+                }
+
+
+                /*
+                 * Scroll to requested section.
+                 */
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+
+                /*
+                 * Update URL without causing
+                 * another automatic browser jump.
+                 */
+
+                history.pushState(
+                    null,
+                    "",
+                    targetId
                 );
 
-            },
-            200
+            }
+        );
+
+    });
+
+
+    /* -----------------------------------------------------
+       MOBILE MENU
+       ----------------------------------------------------- */
+
+    if (navToggle && navMenu) {
+
+        navToggle.addEventListener(
+            "click",
+            function() {
+
+                const isOpen =
+                    navMenu.classList.toggle(
+                        "active"
+                    );
+
+
+                navToggle.setAttribute(
+                    "aria-expanded",
+                    isOpen ? "true" : "false"
+                );
+
+            }
         );
 
     }
 
-}
 
+    /* -----------------------------------------------------
+       CLOSE MOBILE MENU AFTER CLICK
+       ----------------------------------------------------- */
 
-/* =========================================================
-   INITIALIZE WEBSITE
-   ========================================================= */
+    navLinks.forEach(link => {
 
-async function initializeWebsite() {
+        link.addEventListener(
+            "click",
+            function() {
 
-    console.log(
-        "Starting Sohail Ahmed portfolio..."
-    );
+                if (navMenu) {
+                    navMenu.classList.remove(
+                        "active"
+                    );
+                }
 
+            }
+        );
 
-    /*
-     * Load all HTML sections first.
-     */
-
-    await loadAllSections();
-
-
-    /*
-     * Initialize navigation.
-     */
-
-    initializeNavigation();
-
-
-    /*
-     * Initialize mobile menu.
-     */
-
-    initializeMobileNavigation();
-
-
-    /*
-     * Handle URL hash if present.
-     */
-
-    handleInitialHash();
-
-
-    console.log(
-        "Sohail Ahmed portfolio loaded successfully."
-    );
+    });
 
 }
 
 
 /* =========================================================
-   START
+   FORCE TOP POSITION ON INITIAL PAGE LOAD
    ========================================================= */
 
-if (
-    document.readyState === "loading"
-) {
+if ("scrollRestoration" in history) {
 
-    document.addEventListener(
-        "DOMContentLoaded",
-        initializeWebsite
-    );
-
-} else {
-
-    initializeWebsite();
+    history.scrollRestoration = "manual";
 
 }
+
+
+/*
+ * Immediately force the browser to the top.
+ */
+
+window.scrollTo(
+    0,
+    0
+);
+
+
+/* =========================================================
+   START WEBSITE
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        /*
+         * Keep the page at the top while sections
+         * are being loaded.
+         */
+
+        window.scrollTo(
+            0,
+            0
+        );
+
+
+        loadSections();
+
+    }
+);
+
+
+/* =========================================================
+   FINAL SAFETY CHECK
+   ========================================================= */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        /*
+         * If the page was opened without an intentional
+         * section command, start at the hero.
+         */
+
+        if (
+            !window.location.hash ||
+            window.location.hash === "#home"
+        ) {
+
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "auto"
+            });
+
+        }
+
+    }
+);
