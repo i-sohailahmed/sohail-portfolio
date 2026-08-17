@@ -1,30 +1,60 @@
 /* =========================================================
    NAVBAR
+   Sohail Ahmed Portfolio
+   PC + TABLET + PHONE
+   ========================================================= */
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+    width: 100%;
+
+    position: relative;
+
+    z-index: 1000;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #dce8f2;
+}
+
+
+/* =========================================================
+   NAVBAR
    ========================================================= */
 
 .navbar {
     width: 100%;
+
     background: #ffffff;
-    border-bottom: 1px solid #dce8f2;
-    position: relative;
-    z-index: 1000;
 }
 
 
+/* =========================================================
+   NAVBAR CONTAINER
+   ========================================================= */
+
 .navbar-container {
     width: 100%;
-    max-width: 1250px;
-    margin: 0 auto;
 
-    padding: 0 40px;
+    max-width: 1200px;
 
     min-height: 70px;
 
+    margin: 0 auto;
+
+    padding: 0 30px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
-    box-sizing: border-box;
+    position: relative;
 }
 
 
@@ -32,53 +62,120 @@
    LOGO
    ========================================================= */
 
-.nav-logo {
+.navbar-logo {
+    display: inline-flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
     color: #0b3b70;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    letter-spacing: 0.3px;
 
     text-decoration: none;
 
-    font-size: 22px;
-    font-weight: 800;
-
-    letter-spacing: 0.5px;
-
     white-space: nowrap;
 
-    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.navbar-logo:hover {
+    color: #155a9c;
+
+    opacity: 0.9;
 }
 
 
 /* =========================================================
-   NAVIGATION MENU
+   NAVIGATION LINKS CONTAINER
    ========================================================= */
 
-.nav-menu {
+.nav-links {
     display: flex;
+
     align-items: center;
 
+    justify-content: flex-end;
+
     gap: 30px;
+
+    margin-left: auto;
 }
 
 
-.nav-menu a {
+/* =========================================================
+   INDIVIDUAL NAVIGATION LINK
+   ========================================================= */
+
+.nav-link {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 70px;
+
     color: #111827;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    line-height: 1;
 
     text-decoration: none;
 
-    font-size: 15px;
-    font-weight: 600;
-
-    padding: 10px 0;
-
-    cursor: pointer;
+    white-space: nowrap;
 
     transition:
         color 0.2s ease;
 }
 
 
-.nav-menu a:hover {
+/* =========================================================
+   NAVIGATION HOVER UNDERLINE
+   ========================================================= */
+
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 17px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #0b3b70;
+
+    transition:
+        width 0.2s ease;
+}
+
+
+.nav-link:hover {
     color: #0b3b70;
+}
+
+
+.nav-link:hover::after {
+    width: 100%;
 }
 
 
@@ -86,39 +183,91 @@
    MOBILE MENU BUTTON
    ========================================================= */
 
-.nav-toggle {
+.menu-toggle {
     display: none;
 
-    width: 52px;
-    height: 52px;
+    width: 46px;
+
+    height: 46px;
 
     padding: 0;
 
-    background: #ffffff;
+    margin: 0;
 
-    border: 1px solid #dce8f2;
-    border-radius: 4px;
-
-    cursor: pointer;
+    flex-shrink: 0;
 
     align-items: center;
+
     justify-content: center;
 
     flex-direction: column;
 
     gap: 5px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce8f2;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
 }
 
 
-.nav-toggle span {
+.menu-toggle:hover {
+    background: #f5f9fc;
+
+    border-color: #0b3b70;
+}
+
+
+/* =========================================================
+   HAMBURGER LINES
+   ========================================================= */
+
+.menu-toggle span {
     display: block;
 
-    width: 28px;
-    height: 3px;
+    width: 24px;
+
+    height: 2px;
 
     background: #0b3b70;
 
     border-radius: 2px;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+/* =========================================================
+   HAMBURGER -> X
+   ========================================================= */
+
+.menu-toggle.active span:nth-child(1) {
+    transform:
+        translateY(7px)
+        rotate(45deg);
+}
+
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.menu-toggle.active span:nth-child(3) {
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
 }
 
 
@@ -129,16 +278,18 @@
 @media (max-width: 900px) {
 
     .navbar-container {
-        padding: 0 25px;
+        padding-left: 25px;
+
+        padding-right: 25px;
     }
 
 
-    .nav-menu {
+    .nav-links {
         gap: 20px;
     }
 
 
-    .nav-menu a {
+    .nav-link {
         font-size: 14px;
     }
 
@@ -146,91 +297,153 @@
 
 
 /* =========================================================
-   MOBILE
+   PHONE NAVIGATION
    ========================================================= */
 
 @media (max-width: 768px) {
 
+    .site-header {
+        position: sticky;
+
+        top: 0;
+
+        z-index: 1000;
+    }
+
+
     .navbar-container {
+        min-height: 64px;
 
-        min-height: 72px;
-
-        padding: 0 18px;
-
+        padding:
+            0 20px;
     }
 
 
-    .nav-logo {
+    /* -----------------------------------------
+       Logo
+       ----------------------------------------- */
 
-        font-size: 19px;
-
+    .navbar-logo {
+        font-size: 18px;
     }
 
 
-    .nav-toggle {
+    /* -----------------------------------------
+       Show hamburger
+       ----------------------------------------- */
 
+    .menu-toggle {
         display: flex;
-
     }
 
 
-    .nav-menu {
+    /* -----------------------------------------
+       Mobile navigation panel
+       ----------------------------------------- */
 
-        display: none;
-
+    .nav-links {
         position: absolute;
 
-        top: 72px;
+        top: 100%;
+
         left: 0;
+
+        right: 0;
 
         width: 100%;
 
-        background: #ffffff;
+        margin: 0;
 
-        border-top: 1px solid #dce8f2;
-        border-bottom: 1px solid #dce8f2;
+        padding: 10px 20px 18px;
 
-        padding: 10px 0;
+        display: flex;
 
         flex-direction: column;
 
         align-items: stretch;
 
+        justify-content: flex-start;
+
         gap: 0;
 
-        box-sizing: border-box;
+        background: #ffffff;
 
+        border-top: 1px solid #dce8f2;
+
+        border-bottom: 1px solid #dce8f2;
+
+        box-shadow:
+            0 8px 20px rgba(11, 59, 112, 0.08);
+
+        /*
+        Hidden by default
+        */
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform: translateY(-8px);
+
+        transition:
+            opacity 0.2s ease,
+            visibility 0.2s ease,
+            transform 0.2s ease;
     }
 
 
-    .nav-menu.active {
+    /* -----------------------------------------
+       Open mobile navigation
+       ----------------------------------------- */
 
-        display: flex;
+    .nav-links.active {
+        opacity: 1;
 
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform: translateY(0);
     }
 
 
-    .nav-menu a {
+    /* -----------------------------------------
+       Mobile links
+       ----------------------------------------- */
 
-        display: block;
-
+    .nav-link {
         width: 100%;
 
-        box-sizing: border-box;
+        min-height: 48px;
 
-        padding: 15px 25px;
+        justify-content: flex-start;
+
+        padding: 0 5px;
+
+        color: #111827;
 
         font-size: 16px;
 
-        text-align: left;
-
+        border-bottom: 1px solid #edf2f7;
     }
 
 
-    .nav-menu a:hover {
+    .nav-link:last-child {
+        border-bottom: none;
+    }
 
-        background: #f3f7fb;
 
+    .nav-link::after {
+        display: none;
+    }
+
+
+    .nav-link:hover {
+        color: #0b3b70;
+
+        background: #f5f9fc;
     }
 
 }
@@ -243,31 +456,97 @@
 @media (max-width: 480px) {
 
     .navbar-container {
+        min-height: 60px;
 
-        padding: 0 15px;
+        padding-left: 16px;
 
+        padding-right: 16px;
     }
 
 
-    .nav-logo {
-
+    .navbar-logo {
         font-size: 17px;
-
     }
 
 
-    .nav-toggle {
+    .menu-toggle {
+        width: 44px;
 
-        width: 48px;
-        height: 48px;
-
+        height: 44px;
     }
 
 
-    .nav-menu {
+    .nav-links {
+        padding-left: 16px;
 
-        top: 72px;
+        padding-right: 16px;
 
+        padding-bottom: 14px;
+    }
+
+
+    .nav-link {
+        min-height: 46px;
+
+        font-size: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .navbar-container {
+        padding-left: 13px;
+
+        padding-right: 13px;
+    }
+
+
+    .navbar-logo {
+        font-size: 16px;
+    }
+
+
+    .menu-toggle {
+        width: 42px;
+
+        height: 42px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.nav-link:focus-visible,
+.navbar-logo:focus-visible,
+.menu-toggle:focus-visible {
+    outline: 3px solid #7db4e6;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .nav-link,
+    .nav-link::after,
+    .navbar-logo,
+    .menu-toggle,
+    .menu-toggle span,
+    .nav-links {
+        transition: none;
     }
 
 }

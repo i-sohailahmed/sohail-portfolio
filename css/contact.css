@@ -1,88 +1,989 @@
+/* =========================================================
+   CONTACT SECTION
+   Sohail Ahmed Portfolio
+   PC + TABLET + PHONE FRIENDLY
+   ========================================================= */
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
 .contact {
-    background: #ffffff;
-}
-
-.contact-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 80px 30px;
-}
-
-.contact-intro {
-    max-width: 700px;
-    color: #4b5563;
-    font-size: 17px;
-    line-height: 1.7;
-    margin-bottom: 40px;
-}
-
-.contact-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.contact-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    width: 100%;
 
     background: #f8fbfe;
-    border: 1px solid #dce8f2;
-    border-top: 4px solid #0b3b70;
 
-    padding: 25px;
+    border-top: 1px solid #e5eef5;
 
-    text-decoration: none;
+    border-bottom: 1px solid #e5eef5;
 
-    transition: all 0.2s ease;
+    overflow: hidden;
 }
 
-.contact-card:hover {
-    border-color: #155a9c;
-    transform: translateY(-3px);
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.contact-container {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding:
+        90px 30px;
+
+    box-sizing: border-box;
 }
 
-.contact-icon {
-    min-width: 45px;
-    height: 45px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* =========================================================
+   HEADING
+   ========================================================= */
 
-    background: #0b3b70;
-    color: #ffffff;
+.contact-heading {
+    width: 100%;
 
-    font-size: 16px;
-    font-weight: 700;
+    max-width: 800px;
 
-    border-radius: 4px;
+    margin-bottom: 55px;
 }
 
-.contact-card h3 {
-    color: #0b3b70;
-    font-size: 17px;
-    margin-bottom: 5px;
-}
 
-.contact-card p {
-    color: #6b7280;
-    font-size: 13px;
+/* =========================================================
+   SECTION LABEL
+   ========================================================= */
+
+.contact .section-label {
+    margin: 0 0 15px;
+
+    color: #155a9c;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
     line-height: 1.4;
 }
 
 
-/* Mobile */
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.contact-heading h2 {
+    margin: 0 0 18px;
+
+    color: #0b3b70;
+
+    font-size: clamp(
+        38px,
+        5vw,
+        58px
+    );
+
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
+
+.contact-intro {
+    max-width: 750px;
+
+    margin: 0;
+
+    color: #4b5563;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   MAIN CONTACT LAYOUT
+   ========================================================= */
+
+.contact-layout {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(300px, 0.85fr);
+
+    gap: 30px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   CONTACT INFORMATION
+   ========================================================= */
+
+.contact-information {
+    width: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   CONTACT CARD
+   ========================================================= */
+
+.contact-card {
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    display: grid;
+
+    grid-template-columns:
+        55px
+        minmax(0, 1fr)
+        30px;
+
+    column-gap: 18px;
+
+    align-items: center;
+
+    padding: 22px;
+
+    color: inherit;
+
+    background: #ffffff;
+
+    border: 1px solid #dce8f2;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.contact-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #9fc3df;
+
+    box-shadow:
+        0 10px 25px rgba(
+            11,
+            59,
+            112,
+            0.08
+        );
+}
+
+
+/* =========================================================
+   CONTACT ICON
+   ========================================================= */
+
+.contact-icon {
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #ffffff;
+
+    background: #0b3b70;
+
+    border-radius: 3px;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.contact-card-content {
+    width: 100%;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   CARD LABEL
+   ========================================================= */
+
+.contact-card-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #155a9c;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.contact-card-content h3 {
+    width: 100%;
+
+    margin: 0 0 5px;
+
+    color: #0b3b70;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    line-height: 1.4;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+   ========================================================= */
+
+.contact-card-content p {
+    width: 100%;
+
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+.contact-arrow {
+    color: #0b3b70;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   CTA PANEL
+   ========================================================= */
+
+.contact-cta {
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 38px;
+
+    background: #e8f2fa;
+
+    border-left: 5px solid #0b3b70;
+}
+
+
+/* =========================================================
+   CTA LABEL
+   ========================================================= */
+
+.contact-cta-label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #155a9c;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   CTA TITLE
+   ========================================================= */
+
+.contact-cta h3 {
+    margin: 0 0 15px;
+
+    color: #0b3b70;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   CTA DESCRIPTION
+   ========================================================= */
+
+.contact-cta p {
+    margin: 0 0 28px;
+
+    color: #4b5563;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA BUTTONS
+   ========================================================= */
+
+.contact-btn {
+    width: 100%;
+
+    min-height: 48px;
+
+    margin-top: 10px;
+
+    padding:
+        0 18px;
+
+    box-sizing: border-box;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    border-radius: 3px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   PRIMARY CTA
+   ========================================================= */
+
+.contact-btn-primary {
+    color: #ffffff;
+
+    background: #0b3b70;
+
+    border: 2px solid #0b3b70;
+}
+
+
+.contact-btn-primary:hover {
+    color: #ffffff;
+
+    background: #155a9c;
+
+    border-color: #155a9c;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SECONDARY CTA
+   ========================================================= */
+
+.contact-btn-secondary {
+    color: #0b3b70;
+
+    background: #ffffff;
+
+    border: 2px solid #0b3b70;
+}
+
+
+.contact-btn-secondary:hover {
+    color: #ffffff;
+
+    background: #0b3b70;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   BOTTOM
+   ========================================================= */
+
+.contact-bottom {
+    width: 100%;
+
+    margin-top: 45px;
+
+    padding-top: 28px;
+
+    border-top: 1px solid #dce8f2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.contact-bottom p {
+    margin: 0;
+
+    color: #4b5563;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+.contact-bottom a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #0b3b70;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+
+.contact-bottom a:hover {
+    color: #155a9c;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .contact-container {
+        padding:
+            75px 25px;
+    }
+
+
+    .contact-heading {
+        margin-bottom: 45px;
+    }
+
+
+    .contact-heading h2 {
+        font-size: 44px;
+    }
+
+
+    .contact-layout {
+        grid-template-columns:
+            minmax(0, 1fr);
+    }
+
+
+    .contact-cta {
+        padding: 32px;
+    }
+
+}
+
+
+/* =========================================================
+   PHONE
+   ========================================================= */
 
 @media (max-width: 768px) {
 
-    .contact-container {
-        padding: 60px 20px;
+    .contact {
+        width: 100%;
+
+        overflow: hidden;
     }
 
-    .contact-cards {
-        grid-template-columns: 1fr;
+
+    .contact-container {
+        width: 100%;
+
+        max-width: 100%;
+
+        padding:
+            65px 20px 70px;
+
+        box-sizing: border-box;
+    }
+
+
+    /* -----------------------------------------
+       Heading
+       ----------------------------------------- */
+
+    .contact-heading {
+        width: 100%;
+
+        max-width: 100%;
+
+        margin-bottom: 38px;
+    }
+
+
+    .contact .section-label {
+        font-size: 13px;
+
+        letter-spacing: 1.7px;
+    }
+
+
+    .contact-heading h2 {
+        width: 100%;
+
+        font-size: clamp(
+            32px,
+            9vw,
+            44px
+        );
+
+        line-height: 1.18;
+
+        letter-spacing: -0.5px;
+
+        overflow-wrap: break-word;
+    }
+
+
+    .contact-intro {
+        width: 100%;
+
+        max-width: 100%;
+
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+
+    /* -----------------------------------------
+       Layout
+       ----------------------------------------- */
+
+    .contact-layout {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+
+    /* -----------------------------------------
+       Information
+       ----------------------------------------- */
+
+    .contact-information {
+        width: 100%;
+
+        gap: 12px;
+    }
+
+
+    /* -----------------------------------------
+       Contact cards
+       ----------------------------------------- */
+
+    .contact-card {
+        width: 100%;
+
+        max-width: 100%;
+
+        grid-template-columns:
+            45px
+            minmax(0, 1fr)
+            20px;
+
+        column-gap: 12px;
+
+        padding: 16px 14px;
+    }
+
+
+    .contact-icon {
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 15px;
+    }
+
+
+    .contact-card-label {
+        font-size: 8px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .contact-card-content h3 {
+        font-size: 13px;
+
+        line-height: 1.4;
+    }
+
+
+    .contact-card-content p {
+        font-size: 11px;
+
+        line-height: 1.5;
+    }
+
+
+    .contact-arrow {
+        font-size: 17px;
+    }
+
+
+    /* -----------------------------------------
+       CTA
+       ----------------------------------------- */
+
+    .contact-cta {
+        width: 100%;
+
+        padding: 25px 20px;
+
+        border-left-width: 4px;
+    }
+
+
+    .contact-cta-label {
+        font-size: 8px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .contact-cta h3 {
+        font-size: 24px;
+
+        line-height: 1.25;
+    }
+
+
+    .contact-cta p {
+        font-size: 12px;
+
+        line-height: 1.6;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* -----------------------------------------
+       Buttons
+       ----------------------------------------- */
+
+    .contact-btn {
+        width: 100%;
+
+        min-height: 46px;
+
+        margin-top: 8px;
+
+        font-size: 12px;
+    }
+
+
+    /* -----------------------------------------
+       Bottom
+       ----------------------------------------- */
+
+    .contact-bottom {
+        width: 100%;
+
+        margin-top: 30px;
+
+        padding-top: 22px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+
+    .contact-bottom p {
+        font-size: 12px;
+    }
+
+
+    .contact-bottom a {
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .contact-container {
+        padding:
+            55px 16px 60px;
+    }
+
+
+    .contact-heading {
+        margin-bottom: 32px;
+    }
+
+
+    .contact-heading h2 {
+        font-size: 32px;
+
+        line-height: 1.2;
+    }
+
+
+    .contact-intro {
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    .contact-card {
+        grid-template-columns:
+            40px
+            minmax(0, 1fr)
+            18px;
+
+        column-gap: 10px;
+
+        padding:
+            14px 12px;
+    }
+
+
+    .contact-icon {
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 13px;
+    }
+
+
+    .contact-card-content h3 {
+        font-size: 12px;
+    }
+
+
+    .contact-card-content p {
+        font-size: 10px;
+    }
+
+
+    .contact-cta {
+        padding:
+            22px 17px;
+    }
+
+
+    .contact-cta h3 {
+        font-size: 22px;
+    }
+
+
+    .contact-cta p {
+        font-size: 11px;
+    }
+
+
+    .contact-btn {
+        min-height: 44px;
+
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .contact-container {
+        padding:
+            50px 13px 55px;
+    }
+
+
+    .contact-heading h2 {
+        font-size: 29px;
+    }
+
+
+    .contact-card {
+        grid-template-columns:
+            36px
+            minmax(0, 1fr)
+            16px;
+
+        column-gap: 8px;
+
+        padding:
+            13px 10px;
+    }
+
+
+    .contact-icon {
+        width: 34px;
+
+        height: 34px;
+
+        font-size: 12px;
+    }
+
+
+    .contact-card-content h3 {
+        font-size: 11px;
+    }
+
+
+    .contact-card-content p {
+        font-size: 9.5px;
+    }
+
+
+    .contact-cta h3 {
+        font-size: 20px;
+    }
+
+
+    .contact-cta p {
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.contact-card:focus-visible,
+.contact-btn:focus-visible,
+.contact-bottom a:focus-visible {
+    outline: 3px solid #7db4e6;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .contact-card,
+    .contact-btn {
+        transition: none;
     }
 
 }

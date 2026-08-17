@@ -1,51 +1,850 @@
+/* =========================================================
+   EDUCATION SECTION
+   Sohail Ahmed Portfolio
+   PC + TABLET + PHONE FRIENDLY
+   ========================================================= */
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
 .education {
+    width: 100%;
+
     background: #ffffff;
+
+    border-top: 1px solid #e5eef5;
+
+    border-bottom: 1px solid #e5eef5;
+
+    overflow: hidden;
 }
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
 
 .education-container {
-    max-width: 1000px;
+    width: 100%;
+
+    max-width: 1200px;
+
     margin: 0 auto;
-    padding: 80px 30px;
+
+    padding:
+        90px 30px;
 }
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.education-heading {
+    width: 100%;
+
+    max-width: 800px;
+
+    margin-bottom: 60px;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+   ========================================================= */
+
+.education .section-label {
+    margin: 0 0 15px;
+
+    color: #155a9c;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.education-heading h2 {
+    margin: 0 0 18px;
+
+    color: #0b3b70;
+
+    font-size: clamp(
+        38px,
+        5vw,
+        58px
+    );
+
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.education-intro {
+    max-width: 700px;
+
+    margin: 0;
+
+    color: #4b5563;
+
+    font-size: 17px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   EDUCATION LIST
+   ========================================================= */
 
 .education-list {
+    width: 100%;
+
     display: flex;
+
     flex-direction: column;
-    gap: 20px;
+
+    gap: 22px;
 }
+
+
+/* =========================================================
+   EDUCATION CARD
+   ========================================================= */
 
 .education-card {
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
     display: grid;
-    grid-template-columns: 120px 1fr;
-    align-items: center;
+
+    grid-template-columns:
+        110px
+        5px
+        minmax(0, 1fr);
+
+    column-gap: 30px;
+
+    padding: 30px;
 
     background: #f8fbfe;
-    border: 1px solid #dce8f2;
-    border-left: 5px solid #0b3b70;
 
-    padding: 25px 30px;
+    border: 1px solid #dce8f2;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
+
+.education-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(
+            11,
+            59,
+            112,
+            0.08
+        );
+}
+
+
+/* =========================================================
+   YEAR
+   ========================================================= */
 
 .education-year {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: flex-start;
+}
+
+
+.education-year span {
     color: #155a9c;
-    font-size: 20px;
-    font-weight: 700;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    line-height: 1.4;
 }
 
-.education-details h3 {
+
+/* =========================================================
+   TIMELINE LINE
+   ========================================================= */
+
+.education-line {
+    width: 4px;
+
+    min-height: 100%;
+
+    background: #0b3b70;
+}
+
+
+/* =========================================================
+   EDUCATION CONTENT
+   ========================================================= */
+
+.education-content {
+    width: 100%;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   DEGREE TYPE
+   ========================================================= */
+
+.education-degree-type {
+    margin: 0 0 8px;
+
+    color: #155a9c;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   DEGREE
+   ========================================================= */
+
+.education-content h3 {
+    margin: 0 0 6px;
+
     color: #0b3b70;
-    font-size: 22px;
-    margin-bottom: 6px;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    line-height: 1.2;
 }
 
-.education-details h4 {
+
+/* =========================================================
+   SPECIALIZATION
+   ========================================================= */
+
+.education-content h4 {
+    margin: 0 0 12px;
+
     color: #1f2937;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 6px;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
 }
 
-.education-details p {
-    color: #6b7280;
+
+/* =========================================================
+   INSTITUTION
+   ========================================================= */
+
+.education-institution {
+    margin: 0 0 15px;
+
+    color: #374151;
+
     font-size: 15px;
+
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.education-description {
+    max-width: 700px;
+
+    margin: 0;
+
+    color: #4b5563;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.education-actions {
+    width: 100%;
+
+    margin-top: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.education-btn {
+    min-width: 175px;
+
+    min-height: 50px;
+
+    box-sizing: border-box;
+
+    padding:
+        0 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 3px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.education-btn-primary {
+    color: #ffffff;
+
+    background: #0b3b70;
+
+    border: 2px solid #0b3b70;
+}
+
+
+.education-btn-primary:hover {
+    color: #ffffff;
+
+    background: #155a9c;
+
+    border-color: #155a9c;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.education-btn-secondary {
+    color: #0b3b70;
+
+    background: #ffffff;
+
+    border: 2px solid #0b3b70;
+}
+
+
+.education-btn-secondary:hover {
+    color: #ffffff;
+
+    background: #0b3b70;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .education-container {
+        padding:
+            75px 25px;
+    }
+
+
+    .education-heading {
+        margin-bottom: 45px;
+    }
+
+
+    .education-heading h2 {
+        font-size: 44px;
+    }
+
+
+    .education-card {
+        grid-template-columns:
+            90px
+            4px
+            minmax(0, 1fr);
+
+        column-gap: 22px;
+
+        padding: 25px;
+    }
+
+
+    .education-content h3 {
+        font-size: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   PHONE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .education {
+        width: 100%;
+
+        overflow: hidden;
+    }
+
+
+    .education-container {
+        width: 100%;
+
+        max-width: 100%;
+
+        box-sizing: border-box;
+
+        padding:
+            65px 20px 70px;
+    }
+
+
+    /* -----------------------------------------
+       Heading
+       ----------------------------------------- */
+
+    .education-heading {
+        width: 100%;
+
+        max-width: 100%;
+
+        margin-bottom: 38px;
+    }
+
+
+    .education .section-label {
+        font-size: 13px;
+
+        letter-spacing: 1.7px;
+    }
+
+
+    .education-heading h2 {
+        width: 100%;
+
+        font-size: clamp(
+            32px,
+            9vw,
+            44px
+        );
+
+        line-height: 1.18;
+
+        letter-spacing: -0.5px;
+
+        overflow-wrap: break-word;
+    }
+
+
+    .education-intro {
+        width: 100%;
+
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+
+    /* -----------------------------------------
+       Education list
+       ----------------------------------------- */
+
+    .education-list {
+        width: 100%;
+
+        gap: 15px;
+    }
+
+
+    /* -----------------------------------------
+       Education card
+       ----------------------------------------- */
+
+    .education-card {
+        width: 100%;
+
+        max-width: 100%;
+
+        min-width: 0;
+
+        box-sizing: border-box;
+
+        display: grid;
+
+        grid-template-columns:
+            65px
+            3px
+            minmax(0, 1fr);
+
+        column-gap: 15px;
+
+        padding:
+            22px 17px;
+    }
+
+
+    /* -----------------------------------------
+       Year
+       ----------------------------------------- */
+
+    .education-year {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+
+    .education-year span {
+        font-size: 15px;
+
+        line-height: 1.4;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* -----------------------------------------
+       Timeline
+       ----------------------------------------- */
+
+    .education-line {
+        width: 3px;
+
+        min-height: 100%;
+    }
+
+
+    /* -----------------------------------------
+       Content
+       ----------------------------------------- */
+
+    .education-content {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+
+    .education-degree-type {
+        font-size: 9px;
+
+        letter-spacing: 1px;
+
+        margin-bottom: 7px;
+    }
+
+
+    .education-content h3 {
+        font-size: 22px;
+
+        line-height: 1.2;
+
+        margin-bottom: 5px;
+
+        overflow-wrap: break-word;
+    }
+
+
+    .education-content h4 {
+        font-size: 14px;
+
+        line-height: 1.4;
+
+        margin-bottom: 10px;
+
+        overflow-wrap: break-word;
+    }
+
+
+    .education-institution {
+        font-size: 13px;
+
+        line-height: 1.5;
+
+        margin-bottom: 11px;
+
+        overflow-wrap: break-word;
+    }
+
+
+    .education-description {
+        width: 100%;
+
+        max-width: 100%;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* -----------------------------------------
+       Buttons
+       ----------------------------------------- */
+
+    .education-actions {
+        width: 100%;
+
+        margin-top: 35px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .education-btn {
+        width: 100%;
+
+        min-width: 0;
+
+        min-height: 48px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .education-container {
+        padding:
+            55px 16px 60px;
+    }
+
+
+    .education-heading {
+        margin-bottom: 32px;
+    }
+
+
+    .education-heading h2 {
+        font-size: 32px;
+
+        line-height: 1.2;
+    }
+
+
+    .education-intro {
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+
+    .education-card {
+        grid-template-columns:
+            58px
+            3px
+            minmax(0, 1fr);
+
+        column-gap: 12px;
+
+        padding:
+            19px 14px;
+    }
+
+
+    .education-year span {
+        font-size: 13px;
+    }
+
+
+    .education-degree-type {
+        font-size: 8px;
+
+        letter-spacing: 0.8px;
+    }
+
+
+    .education-content h3 {
+        font-size: 20px;
+    }
+
+
+    .education-content h4 {
+        font-size: 13px;
+    }
+
+
+    .education-institution {
+        font-size: 12px;
+    }
+
+
+    .education-description {
+        font-size: 12px;
+
+        line-height: 1.55;
+    }
+
+
+    .education-btn {
+        font-size: 13px;
+
+        min-height: 47px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .education-container {
+        padding:
+            50px 14px 55px;
+    }
+
+
+    .education-heading h2 {
+        font-size: 29px;
+    }
+
+
+    .education-card {
+        grid-template-columns:
+            52px
+            3px
+            minmax(0, 1fr);
+
+        column-gap: 10px;
+
+        padding:
+            17px 12px;
+    }
+
+
+    .education-year span {
+        font-size: 12px;
+    }
+
+
+    .education-content h3 {
+        font-size: 19px;
+    }
+
+
+    .education-content h4 {
+        font-size: 12px;
+    }
+
+
+    .education-institution {
+        font-size: 11px;
+    }
+
+
+    .education-description {
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.education-btn:focus-visible {
+    outline: 3px solid #7db4e6;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .education-card,
+    .education-btn {
+        transition: none;
+    }
+
 }

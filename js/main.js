@@ -5,33 +5,27 @@
 
 
 /* =========================================================
-   PREVENT BROWSER FROM RESTORING OLD SCROLL POSITION
+   START WEBSITE
    ========================================================= */
 
-if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
-}
+document.addEventListener("DOMContentLoaded", function () {
+
+    /*
+    Always start at the top of the website.
+
+    This prevents the browser from reopening the page at
+    the previous footer/section position.
+    */
+
+    window.scrollTo(0, 0);
+
+    loadWebsite();
+
+});
 
 
 /* =========================================================
-   SECTIONS TO LOAD
-   ========================================================= */
-
-const sections = [
-    "navbar",
-    "hero",
-    "about",
-    "skills",
-    "education",
-    "experience",
-    "projects",
-    "contact",
-    "footer"
-];
-
-
-/* =========================================================
-   LOAD WEBSITE
+   LOAD ALL WEBSITE SECTIONS
    ========================================================= */
 
 async function loadWebsite() {
@@ -41,7 +35,7 @@ async function loadWebsite() {
     if (!page) {
 
         console.error(
-            "ERROR: #page element was not found in index.html"
+            "ERROR: #page element was not found."
         );
 
         return;
@@ -49,37 +43,79 @@ async function loadWebsite() {
 
 
     /*
-     * Keep the page at the top while sections load.
-     */
+    ---------------------------------------------------------
+    IMPORTANT
 
-    window.scrollTo(0, 0);
+    These filenames exactly match your current folder.
+    ---------------------------------------------------------
+    */
+
+    const sections = [
+
+        "navbar.html",
+
+        "hero.html",
+
+        "about.html",
+
+        "skills.html",
+
+        "education.html",
+
+        "experience.html",
+
+        "projects.html",
+
+        "contact.html",
+
+        "footer.html"
+
+    ];
 
 
     /*
-     * Load every section.
-     */
+    ---------------------------------------------------------
+    Remove loading message
+    ---------------------------------------------------------
+    */
+
+    page.innerHTML = "";
+
+
+    /*
+    ---------------------------------------------------------
+    Load sections one by one
+    ---------------------------------------------------------
+    */
 
     for (const section of sections) {
 
         try {
 
             const response = await fetch(
-                `sections/${section}.html`
+                `sections/${section}`
             );
 
 
+            /*
+            Check whether the file actually exists
+            */
+
             if (!response.ok) {
 
-                console.error(
-                    `ERROR loading sections/${section}.html`
+                throw new Error(
+                    `${section} returned HTTP ${response.status}`
                 );
 
-                continue;
             }
 
 
             const html = await response.text();
 
+
+            /*
+            Insert the section into the page
+            */
 
             page.insertAdjacentHTML(
                 "beforeend",
@@ -89,8 +125,15 @@ async function loadWebsite() {
 
         } catch (error) {
 
+            /*
+            Do NOT stop the entire website if one section
+            has a problem.
+
+            The remaining sections will still load.
+            */
+
             console.error(
-                `ERROR loading ${section}.html:`,
+                `Could not load ${section}:`,
                 error
             );
 
@@ -100,22 +143,43 @@ async function loadWebsite() {
 
 
     /*
-     * All sections are now loaded.
-     * Start at the top of the website.
-     */
+    ---------------------------------------------------------
+    Setup navigation AFTER all sections are loaded
+    ---------------------------------------------------------
+    */
+
+    setupNavigation();
+
+
+    /*
+    ---------------------------------------------------------
+    Setup mobile menu AFTER navbar is loaded
+    ---------------------------------------------------------
+    */
+
+    setupMobileMenu();
+
+
+    /*
+    ---------------------------------------------------------
+    Setup hero buttons and other internal links
+    ---------------------------------------------------------
+    */
+
+    setupInternalLinks();
+
+
+    /*
+    ---------------------------------------------------------
+    Make sure page remains at the top after loading
+    ---------------------------------------------------------
+    */
 
     window.scrollTo({
         top: 0,
         left: 0,
         behavior: "instant"
     });
-
-
-    /*
-     * Activate navigation.
-     */
-
-    setupNavigation();
 
 }
 
@@ -126,63 +190,24 @@ async function loadWebsite() {
 
 function setupNavigation() {
 
-
-    /* -----------------------------------------------------
-       NAV MENU
-       ----------------------------------------------------- */
-
-    const navMenu =
-        document.querySelector(".nav-menu");
+    const links = document.querySelectorAll(
+        'a[href^="#"]'
+    );
 
 
-    /* -----------------------------------------------------
-       MOBILE MENU BUTTON
-       ----------------------------------------------------- */
-
-    const navToggle =
-        document.querySelector(".nav-toggle");
-
-
-    /* -----------------------------------------------------
-       NAVIGATION LINKS
-       ----------------------------------------------------- */
-
-    const links =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
-
-
-    /*
-     * If navbar wasn't loaded, stop safely.
-     */
-
-    if (!links.length) {
-
-        console.warn(
-            "No navigation links found."
-        );
-
-    }
-
-
-    /* -----------------------------------------------------
-       HANDLE LINKS
-       ----------------------------------------------------- */
-
-    links.forEach(function(link) {
+    links.forEach(function (link) {
 
         link.addEventListener(
             "click",
-            function(event) {
+            function (event) {
 
                 const targetId =
                     this.getAttribute("href");
 
 
                 /*
-                 * Ignore empty # links.
-                 */
+                Ignore empty links
+                */
 
                 if (
                     !targetId ||
@@ -190,68 +215,36 @@ function setupNavigation() {
                 ) {
 
                     return;
+
                 }
 
 
-                /*
-                 * Find target section.
-                 */
-
                 const target =
-                    document.querySelector(
-                        targetId
-                    );
+                    document.querySelector(targetId);
 
 
                 /*
-                 * If target doesn't exist,
-                 * don't break the website.
-                 */
+                If target does not exist, don't break
+                the website.
+                */
 
                 if (!target) {
 
                     console.warn(
-                        "Target not found:",
-                        targetId
+                        `Navigation target ${targetId} was not found.`
                     );
 
                     return;
+
                 }
 
-
-                /*
-                 * Prevent default browser jump.
-                 */
 
                 event.preventDefault();
 
 
                 /*
-                 * Close mobile menu.
-                 */
-
-                if (navMenu) {
-
-                    navMenu.classList.remove(
-                        "active"
-                    );
-
-                }
-
-
-                if (navToggle) {
-
-                    navToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                }
-
-
-                /*
-                 * Smooth scroll.
-                 */
+                Smoothly move to target section
+                */
 
                 target.scrollIntoView({
                     behavior: "smooth",
@@ -260,48 +253,202 @@ function setupNavigation() {
 
 
                 /*
-                 * Update URL.
-                 */
+                Update URL without causing the browser
+                to jump unexpectedly.
+                */
 
-                history.pushState(
-                    null,
-                    "",
-                    targetId
-                );
+                if (
+                    window.history &&
+                    window.history.pushState
+                ) {
+
+                    window.history.pushState(
+                        null,
+                        "",
+                        targetId
+                    );
+
+                }
+
+
+                /*
+                Close mobile menu after navigation
+                */
+
+                closeMobileMenu();
 
             }
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   INTERNAL LINKS
+   ========================================================= */
+
+function setupInternalLinks() {
+
+    const links = document.querySelectorAll(
+        'a[href^="#"]'
+    );
+
+
+    links.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                /*
+                This function intentionally remains simple.
+
+                The actual scrolling is handled by
+                setupNavigation().
+                */
+
+            }
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+function setupMobileMenu() {
+
+    const menuButton =
+        document.querySelector(".menu-toggle");
+
+    const navLinks =
+        document.querySelector(".nav-links");
+
+
+    /*
+    If the current navbar doesn't contain a mobile menu,
+    simply skip this function.
+
+    This allows us to build the navbar later without
+    breaking the foundation.
+    */
+
+    if (
+        !menuButton ||
+        !navLinks
+    ) {
+
+        console.log(
+            "Mobile menu controls not found yet."
+        );
+
+        return;
+
+    }
+
+
+    /*
+    ---------------------------------------------------------
+    Menu button click
+    ---------------------------------------------------------
+    */
+
+    menuButton.addEventListener(
+        "click",
+        function () {
+
+            navLinks.classList.toggle(
+                "active"
+            );
+
+            menuButton.classList.toggle(
+                "active"
+            );
+
+
+            /*
+            Accessibility state
+            */
+
+            const expanded =
+                menuButton.classList.contains(
+                    "active"
+                );
+
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                expanded
+            );
+
+        }
+    );
+
+
+    /*
+    ---------------------------------------------------------
+    Close menu when a navigation link is clicked
+    ---------------------------------------------------------
+    */
+
+    const links =
+        navLinks.querySelectorAll(
+            'a[href^="#"]'
+        );
+
+
+    links.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                closeMobileMenu();
+
+            }
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   CLOSE MOBILE MENU
+   ========================================================= */
+
+function closeMobileMenu() {
+
+    const menuButton =
+        document.querySelector(".menu-toggle");
+
+    const navLinks =
+        document.querySelector(".nav-links");
+
+
+    if (navLinks) {
+
+        navLinks.classList.remove(
+            "active"
         );
 
     }
 
 
-    /* -----------------------------------------------------
-       MOBILE MENU
-       ----------------------------------------------------- */
+    if (menuButton) {
 
-    if (
-        navToggle &&
-        navMenu
-    ) {
+        menuButton.classList.remove(
+            "active"
+        );
 
-        navToggle.addEventListener(
-            "click",
-            function() {
-
-                const opened =
-                    navMenu.classList.toggle(
-                        "active"
-                    );
-
-
-                navToggle.setAttribute(
-                    "aria-expanded",
-                    opened
-                        ? "true"
-                        : "false"
-                );
-
-            }
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
         );
 
     }
@@ -310,14 +457,44 @@ function setupNavigation() {
 
 
 /* =========================================================
-   START
+   ESCAPE KEY
    ========================================================= */
 
 document.addEventListener(
-    "DOMContentLoaded",
-    function() {
+    "keydown",
+    function (event) {
 
-        loadWebsite();
+        if (event.key === "Escape") {
+
+            closeMobileMenu();
+
+        }
 
     }
 );
+
+
+/* =========================================================
+   PREVENT HASH FROM FORCING PAGE TO AN OLD SECTION
+   ========================================================= */
+
+if (
+    window.location.hash &&
+    performance.getEntriesByType("navigation")[0]
+) {
+
+    /*
+    We intentionally do NOT automatically jump to an old
+    section when the portfolio initially loads.
+
+    The user should control navigation through the navbar.
+    */
+
+    history.replaceState(
+        null,
+        "",
+        window.location.pathname +
+        window.location.search
+    );
+
+}

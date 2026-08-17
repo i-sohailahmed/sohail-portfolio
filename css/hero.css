@@ -1,30 +1,48 @@
 /* =========================================================
    HERO SECTION
+   Sohail Ahmed Portfolio
+   PC + TABLET + PHONE
+   ========================================================= */
+
+
+/* =========================================================
+   HERO SECTION
    ========================================================= */
 
 .hero {
-
     width: 100%;
+
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+
+    align-items: center;
 
     background: #ffffff;
 
-    box-sizing: border-box;
-
+    overflow: hidden;
 }
 
 
-.hero-container {
+/* =========================================================
+   HERO CONTAINER
+   ========================================================= */
 
+.hero-container {
     width: 100%;
 
-    max-width: 1250px;
+    max-width: 1200px;
+
+    min-height: calc(100vh - 70px);
 
     margin: 0 auto;
 
-    padding: 100px 40px 90px;
+    padding:
+        80px 30px;
 
-    box-sizing: border-box;
+    display: flex;
 
+    align-items: center;
 }
 
 
@@ -33,21 +51,18 @@
    ========================================================= */
 
 .hero-content {
-
     width: 100%;
 
-    max-width: 950px;
-
+    max-width: 900px;
 }
 
 
 /* =========================================================
-   GREETING
+   INTRODUCTION
    ========================================================= */
 
-.hero-greeting {
-
-    margin: 0 0 25px;
+.hero-intro {
+    margin-bottom: 20px;
 
     color: #155a9c;
 
@@ -55,23 +70,23 @@
 
     font-weight: 700;
 
+    line-height: 1.4;
 }
 
 
 /* =========================================================
-   NAME
+   MAIN NAME
    ========================================================= */
 
-.hero-name {
-
-    margin: 0 0 15px;
+.hero h1 {
+    margin: 0 0 18px;
 
     color: #0b3b70;
 
     font-size: clamp(
-        58px,
+        56px,
         7vw,
-        92px
+        88px
     );
 
     font-weight: 800;
@@ -79,16 +94,14 @@
     line-height: 0.98;
 
     letter-spacing: -2px;
-
 }
 
 
 /* =========================================================
-   JOB TITLE
+   PROFESSIONAL TITLE
    ========================================================= */
 
 .hero-title {
-
     margin: 0 0 25px;
 
     color: #111827;
@@ -96,13 +109,12 @@
     font-size: clamp(
         30px,
         4vw,
-        46px
+        48px
     );
 
     font-weight: 700;
 
     line-height: 1.2;
-
 }
 
 
@@ -111,7 +123,6 @@
    ========================================================= */
 
 .hero-description {
-
     width: 100%;
 
     max-width: 720px;
@@ -122,8 +133,22 @@
 
     font-size: 18px;
 
-    line-height: 1.7;
+    line-height: 1.75;
+}
 
+
+/* =========================================================
+   HERO BUTTON CONTAINER
+   ========================================================= */
+
+.hero-actions {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 16px;
 }
 
 
@@ -131,97 +156,15 @@
    HERO BUTTONS
    ========================================================= */
 
-.hero-buttons {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 18px;
-
-    flex-wrap: wrap;
-
-}
-
-
-/* =========================================================
-   BUTTON BASE
-   ========================================================= */
-
 .hero-btn {
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
+    min-width: 165px;
 
     min-height: 50px;
 
-    padding: 0 25px;
+    padding:
+        0 24px;
 
-    box-sizing: border-box;
-
-    border-radius: 2px;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    text-decoration: none;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
-
-}
-
-
-/* =========================================================
-   PRIMARY BUTTON
-   ========================================================= */
-
-.hero-btn-primary {
-
-    background: #0b3b70;
-
-    color: #ffffff;
-
-    border: 2px solid #0b3b70;
-
-}
-
-
-.hero-btn-primary:hover {
-
-    background: #155a9c;
-
-    border-color: #155a9c;
-
-}
-
-
-/* =========================================================
-   SECONDARY BUTTON
-   ========================================================= */
-
-.hero-btn-secondary {
-
-    background: #ffffff;
-
-    color: #0b3b70;
-
-    border: 2px solid #0b3b70;
-
-}
-
-
-.hero-btn-secondary:hover {
-
-    background: #f3f7fb;
-
+    text-align: center;
 }
 
 
@@ -231,120 +174,190 @@
 
 @media (max-width: 900px) {
 
-    .hero-container {
-
-        padding:
-            80px 25px
-            70px;
-
+    .hero {
+        min-height: auto;
     }
 
 
-    .hero-name {
+    .hero-container {
+        min-height: auto;
 
-        font-size: 64px;
+        padding:
+            90px 25px;
+    }
 
+
+    .hero-content {
+        max-width: 800px;
+    }
+
+
+    .hero-intro {
+        font-size: 17px;
+
+        margin-bottom: 16px;
+    }
+
+
+    .hero h1 {
+        font-size: clamp(
+            48px,
+            8vw,
+            70px
+        );
+
+        letter-spacing: -1.5px;
     }
 
 
     .hero-title {
-
         font-size: 34px;
+    }
 
+
+    .hero-description {
+        max-width: 650px;
+
+        font-size: 17px;
     }
 
 }
 
 
 /* =========================================================
-   MOBILE
+   PHONE
    ========================================================= */
 
 @media (max-width: 768px) {
 
+    .hero {
+        width: 100%;
+
+        min-height: auto;
+
+        display: block;
+    }
+
+
     .hero-container {
+        width: 100%;
+
+        min-height: auto;
 
         padding:
-            70px 20px
-            60px;
+            70px 20px 75px;
 
+        display: block;
     }
 
 
     .hero-content {
+        width: 100%;
 
         max-width: 100%;
-
     }
 
 
-    .hero-greeting {
+    /* -----------------------------------------
+       Introduction
+       ----------------------------------------- */
+
+    .hero-intro {
+        margin-bottom: 15px;
 
         font-size: 16px;
 
-        margin-bottom: 20px;
-
+        line-height: 1.4;
     }
 
 
-    .hero-name {
+    /* -----------------------------------------
+       Name
+       ----------------------------------------- */
+
+    .hero h1 {
+        width: 100%;
+
+        margin-bottom: 18px;
 
         font-size: clamp(
             42px,
             12vw,
-            58px
+            60px
         );
 
-        line-height: 1.05;
+        line-height: 1;
 
         letter-spacing: -1px;
 
-        margin-bottom: 15px;
-
+        overflow-wrap: break-word;
     }
 
+
+    /* -----------------------------------------
+       Professional title
+       ----------------------------------------- */
 
     .hero-title {
+        width: 100%;
 
-        font-size: 25px;
+        margin-bottom: 22px;
 
-        line-height: 1.3;
+        font-size: clamp(
+            25px,
+            7vw,
+            34px
+        );
 
-        margin-bottom: 20px;
-
+        line-height: 1.25;
     }
 
 
+    /* -----------------------------------------
+       Description
+       ----------------------------------------- */
+
     .hero-description {
+        width: 100%;
 
         max-width: 100%;
 
-        font-size: 16px;
-
-        line-height: 1.65;
-
         margin-bottom: 30px;
 
+        font-size: 16px;
+
+        line-height: 1.7;
     }
 
 
-    .hero-buttons {
+    /* -----------------------------------------
+       Buttons
+       ----------------------------------------- */
 
+    .hero-actions {
         width: 100%;
 
-        gap: 12px;
+        display: flex;
 
+        flex-direction: row;
+
+        align-items: stretch;
+
+        gap: 12px;
     }
 
 
     .hero-btn {
+        flex: 1;
+
+        min-width: 0;
 
         min-height: 50px;
 
-        padding: 0 20px;
+        padding:
+            0 14px;
 
         font-size: 14px;
-
     }
 
 }
@@ -357,56 +370,124 @@
 @media (max-width: 480px) {
 
     .hero-container {
-
         padding:
-            55px 18px
-            50px;
-
+            60px 16px 65px;
     }
 
 
-    .hero-name {
+    .hero-intro {
+        font-size: 15px;
 
-        font-size: 43px;
+        margin-bottom: 14px;
+    }
 
-        line-height: 1.05;
 
+    .hero h1 {
+        font-size: 44px;
+
+        line-height: 1;
+
+        letter-spacing: -1px;
     }
 
 
     .hero-title {
+        font-size: 25px;
 
-        font-size: 23px;
+        line-height: 1.25;
 
+        margin-bottom: 20px;
     }
 
 
     .hero-description {
-
         font-size: 15px;
 
         line-height: 1.65;
 
+        margin-bottom: 28px;
     }
 
 
-    .hero-buttons {
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        width: 100%;
-
+    .hero-actions {
+        gap: 10px;
     }
 
 
     .hero-btn {
+        min-height: 48px;
+
+        padding:
+            0 10px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .hero-container {
+        padding:
+            50px 14px 60px;
+    }
+
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+
+    .hero-title {
+        font-size: 22px;
+    }
+
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+
+    .hero-actions {
+        flex-direction: column;
 
         width: 100%;
+    }
 
-        min-height: 52px;
 
+    .hero-btn {
+        width: 100%;
+
+        flex: none;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.hero-btn:focus-visible {
+    outline: 3px solid #7db4e6;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-btn {
+        transition: none;
     }
 
 }

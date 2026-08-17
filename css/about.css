@@ -1,12 +1,12 @@
 /* =========================================================
    ABOUT SECTION
-   MOBILE FIRST
+   Sohail Ahmed Portfolio
    PC + TABLET + PHONE FRIENDLY
    ========================================================= */
 
 
 /* =========================================================
-   MAIN SECTION
+   ABOUT SECTION
    ========================================================= */
 
 .about {
@@ -14,25 +14,27 @@
 
     background: #ffffff;
 
-    box-sizing: border-box;
+    border-top: 1px solid #e5eef5;
+
+    border-bottom: 1px solid #e5eef5;
 
     overflow: hidden;
 }
 
 
 /* =========================================================
-   CONTAINER
+   ABOUT CONTAINER
    ========================================================= */
 
 .about-container {
     width: 100%;
-    max-width: 1100px;
+
+    max-width: 1200px;
 
     margin: 0 auto;
 
-    padding: 50px 15px;
-
-    box-sizing: border-box;
+    padding:
+        90px 30px;
 }
 
 
@@ -43,69 +45,70 @@
 .about-heading {
     width: 100%;
 
-    margin: 0 0 35px 0;
-    padding: 0;
+    max-width: 850px;
 
-    box-sizing: border-box;
+    margin-bottom: 55px;
 }
 
 
-/* ABOUT ME LABEL */
+/* =========================================================
+   SECTION LABEL
+   ========================================================= */
 
 .about .section-label {
-    width: 100%;
-
-    margin: 0 0 10px 0;
-    padding: 0;
+    margin: 0 0 15px;
 
     color: #155a9c;
 
-    font-size: 11px;
+    font-size: 14px;
+
     font-weight: 800;
 
-    letter-spacing: 1.6px;
+    letter-spacing: 2px;
 
     line-height: 1.4;
 }
 
 
-/* MAIN TITLE */
+/* =========================================================
+   ABOUT HEADING
+   ========================================================= */
 
 .about-heading h2 {
-    width: 100%;
-    max-width: 850px;
-
     margin: 0;
-    padding: 0;
 
     color: #0b3b70;
 
-    font-size: 34px;
+    font-size: clamp(
+        38px,
+        5vw,
+        58px
+    );
+
     font-weight: 800;
 
-    line-height: 1.2;
+    line-height: 1.15;
 
-    box-sizing: border-box;
-
-    overflow-wrap: break-word;
+    letter-spacing: -1px;
 }
 
 
 /* =========================================================
-   MAIN CONTENT
-   MOBILE = ONE COLUMN
+   ABOUT CONTENT
    ========================================================= */
 
 .about-content {
     width: 100%;
 
-    display: flex;
+    display: grid;
 
-    flex-direction: column;
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(300px, 0.85fr);
 
-    gap: 30px;
+    gap: 70px;
 
-    box-sizing: border-box;
+    align-items: start;
 }
 
 
@@ -115,33 +118,28 @@
 
 .about-text {
     width: 100%;
-    max-width: 100%;
 
-    box-sizing: border-box;
+    max-width: 700px;
 }
 
 
 .about-text p {
-    width: 100%;
-    max-width: 100%;
+    margin: 0 0 25px;
 
-    margin: 0 0 20px 0;
-    padding: 0;
+    color: #374151;
 
-    color: #4b5563;
+    font-size: 17px;
 
-    font-size: 15px;
-
-    line-height: 1.75;
-
-    box-sizing: border-box;
-
-    overflow-wrap: break-word;
+    line-height: 1.8;
 }
 
 
 .about-text p:last-child {
     margin-bottom: 0;
+
+    color: #0b3b70;
+
+    font-weight: 700;
 }
 
 
@@ -152,31 +150,45 @@
 .about-highlights {
     width: 100%;
 
-    display: flex;
+    display: grid;
 
-    flex-direction: column;
+    grid-template-columns: 1fr;
 
-    gap: 15px;
-
-    box-sizing: border-box;
+    gap: 18px;
 }
 
 
 /* =========================================================
-   INDIVIDUAL CARD
+   ABOUT CARD
    ========================================================= */
 
 .about-card {
     width: 100%;
-    max-width: 100%;
-
-    padding: 22px 20px;
 
     box-sizing: border-box;
 
-    background: #f1f6fa;
+    padding: 25px 24px;
+
+    background: #eef6fc;
 
     border-left: 4px solid #0b3b70;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.about-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(
+            11,
+            59,
+            112,
+            0.08
+        );
 }
 
 
@@ -185,12 +197,12 @@
    ========================================================= */
 
 .about-card-label {
-    margin: 0 0 9px 0;
-    padding: 0;
+    margin: 0 0 10px;
 
     color: #155a9c;
 
-    font-size: 11px;
+    font-size: 13px;
+
     font-weight: 700;
 
     line-height: 1.4;
@@ -202,15 +214,15 @@
    ========================================================= */
 
 .about-card h3 {
-    margin: 0 0 8px 0;
-    padding: 0;
+    margin: 0 0 7px;
 
     color: #0b3b70;
 
-    font-size: 22px;
+    font-size: 25px;
+
     font-weight: 800;
 
-    line-height: 1.25;
+    line-height: 1.2;
 }
 
 
@@ -220,15 +232,104 @@
 
 .about-card > p:last-child {
     margin: 0;
-    padding: 0;
 
     color: #4b5563;
 
-    font-size: 13px;
+    font-size: 14px;
 
-    line-height: 1.55;
+    line-height: 1.6;
+}
 
-    overflow-wrap: break-word;
+
+/* =========================================================
+   ABOUT BUTTONS
+   ========================================================= */
+
+.about-actions {
+    margin-top: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+
+.about-btn {
+    min-width: 175px;
+
+    min-height: 50px;
+
+    box-sizing: border-box;
+
+    padding:
+        0 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    border-radius: 3px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.about-btn-primary {
+    color: #ffffff;
+
+    background: #0b3b70;
+
+    border: 2px solid #0b3b70;
+}
+
+
+.about-btn-primary:hover {
+    background: #155a9c;
+
+    border-color: #155a9c;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.about-btn-secondary {
+    color: #0b3b70;
+
+    background: #ffffff;
+
+    border: 2px solid #0b3b70;
+}
+
+
+.about-btn-secondary:hover {
+    color: #ffffff;
+
+    background: #0b3b70;
+
+    transform: translateY(-2px);
 }
 
 
@@ -236,136 +337,227 @@
    TABLET
    ========================================================= */
 
-@media screen and (min-width: 600px) and (max-width: 900px) {
+@media (max-width: 900px) {
 
     .about-container {
-        padding: 65px 25px;
+        padding:
+            75px 25px;
     }
 
 
     .about-heading {
-        margin-bottom: 40px;
+        margin-bottom: 45px;
     }
 
 
     .about-heading h2 {
-        font-size: 38px;
+        font-size: 44px;
     }
 
 
     .about-content {
-        display: grid;
+        grid-template-columns: 1fr;
 
-        grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
-
-        gap: 30px;
-
-        align-items: start;
+        gap: 45px;
     }
 
 
-    .about-text p {
-        font-size: 15px;
-        line-height: 1.7;
+    .about-text {
+        max-width: 800px;
     }
 
 
     .about-highlights {
-        gap: 15px;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
     }
 
 }
 
 
 /* =========================================================
-   DESKTOP
+   PHONE
    ========================================================= */
 
-@media screen and (min-width: 901px) {
+@media (max-width: 768px) {
 
-    .about-container {
-        padding: 80px 30px;
+    .about {
+        width: 100%;
+
+        overflow: hidden;
     }
 
 
-    /* Heading */
+    .about-container {
+        width: 100%;
+
+        max-width: 100%;
+
+        box-sizing: border-box;
+
+        padding:
+            65px 20px 70px;
+    }
+
+
+    /* -----------------------------------------
+       Heading
+       ----------------------------------------- */
 
     .about-heading {
-        margin-bottom: 50px;
+        width: 100%;
+
+        max-width: 100%;
+
+        margin-bottom: 35px;
     }
 
 
     .about .section-label {
+        margin-bottom: 12px;
+
         font-size: 13px;
 
-        letter-spacing: 2px;
+        letter-spacing: 1.7px;
     }
 
 
     .about-heading h2 {
-        max-width: 800px;
+        width: 100%;
 
-        font-size: 42px;
+        font-size: clamp(
+            32px,
+            9vw,
+            44px
+        );
 
-        line-height: 1.15;
+        line-height: 1.18;
+
+        letter-spacing: -0.5px;
+
+        overflow-wrap: break-word;
     }
 
 
-    /* Main two-column layout */
+    /* -----------------------------------------
+       Content
+       ----------------------------------------- */
 
     .about-content {
-        display: grid;
+        width: 100%;
 
-        grid-template-columns:
-            minmax(0, 1.35fr)
-            minmax(280px, 0.65fr);
+        display: flex;
 
-        gap: 60px;
+        flex-direction: column;
 
-        align-items: start;
+        gap: 35px;
     }
 
 
-    /* Text */
+    /* -----------------------------------------
+       Text
+       ----------------------------------------- */
 
     .about-text {
-        max-width: 650px;
+        width: 100%;
+
+        max-width: 100%;
     }
 
 
     .about-text p {
-        font-size: 16px;
-
-        line-height: 1.8;
+        width: 100%;
 
         margin-bottom: 22px;
+
+        font-size: 16px;
+
+        line-height: 1.75;
+
+        overflow-wrap: break-word;
     }
 
 
-    /* Cards */
+    /* -----------------------------------------
+       Cards
+       ----------------------------------------- */
 
     .about-highlights {
-        gap: 18px;
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 14px;
     }
 
 
     .about-card {
-        padding: 25px 22px;
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 20px 16px;
     }
 
 
     .about-card-label {
         font-size: 12px;
+
+        margin-bottom: 8px;
     }
 
 
     .about-card h3 {
-        font-size: 24px;
+        font-size: 21px;
+
+        line-height: 1.2;
+
+        overflow-wrap: break-word;
     }
 
 
     .about-card > p:last-child {
-        font-size: 14px;
+        font-size: 13px;
+
+        line-height: 1.5;
+
+        overflow-wrap: break-word;
+    }
+
+
+    /* -----------------------------------------
+       Buttons
+       ----------------------------------------- */
+
+    .about-actions {
+        width: 100%;
+
+        margin-top: 35px;
+
+        display: flex;
+
+        gap: 12px;
+    }
+
+
+    .about-btn {
+        flex: 1;
+
+        min-width: 0;
+
+        min-height: 48px;
+
+        padding:
+            0 12px;
+
+        font-size: 13px;
+
+        text-align: center;
     }
 
 }
@@ -375,105 +567,69 @@
    SMALL PHONES
    ========================================================= */
 
-@media screen and (max-width: 480px) {
+@media (max-width: 480px) {
 
     .about-container {
-        padding: 45px 16px;
+        padding:
+            55px 16px 60px;
     }
 
-
-    /* Heading */
 
     .about-heading {
         margin-bottom: 30px;
     }
 
 
-    .about .section-label {
-        font-size: 10px;
-
-        letter-spacing: 1.4px;
-
-        margin-bottom: 8px;
-    }
-
-
     .about-heading h2 {
-        font-size: 29px;
+        font-size: 32px;
 
         line-height: 1.2;
     }
 
 
-    /* Content */
-
-    .about-content {
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 25px;
-    }
-
-
-    /* Text */
-
-    .about-text {
-        width: 100%;
-    }
-
-
     .about-text p {
-        width: 100%;
-
-        font-size: 14px;
+        font-size: 15px;
 
         line-height: 1.7;
-
-        margin-bottom: 18px;
     }
 
 
-    /* Cards */
-
     .about-highlights {
-        width: 100%;
+        grid-template-columns: 1fr;
 
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 14px;
+        gap: 12px;
     }
 
 
     .about-card {
-        width: 100%;
-
-        padding: 20px 17px;
-
-        border-left-width: 4px;
-    }
-
-
-    .about-card-label {
-        font-size: 10px;
-
-        margin-bottom: 7px;
+        padding:
+            19px 16px;
     }
 
 
     .about-card h3 {
         font-size: 20px;
-
-        margin-bottom: 6px;
     }
 
 
     .about-card > p:last-child {
-        font-size: 12px;
+        font-size: 13px;
+    }
 
-        line-height: 1.5;
+
+    .about-actions {
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: 10px;
+    }
+
+
+    .about-btn {
+        width: 100%;
+
+        flex: none;
     }
 
 }
@@ -483,27 +639,21 @@
    VERY SMALL PHONES
    ========================================================= */
 
-@media screen and (max-width: 380px) {
+@media (max-width: 360px) {
 
     .about-container {
-        padding: 40px 13px;
+        padding:
+            50px 14px 55px;
     }
 
 
     .about-heading h2 {
-        font-size: 27px;
+        font-size: 29px;
     }
 
 
     .about-text p {
-        font-size: 13px;
-
-        line-height: 1.65;
-    }
-
-
-    .about-card {
-        padding: 18px 15px;
+        font-size: 14px;
     }
 
 
@@ -511,9 +661,29 @@
         font-size: 19px;
     }
 
+}
 
-    .about-card > p:last-child {
-        font-size: 11px;
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.about-btn:focus-visible {
+    outline: 3px solid #7db4e6;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-card,
+    .about-btn {
+        transition: none;
     }
 
 }

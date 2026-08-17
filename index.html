@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- =====================================================
+         BASIC PAGE SETTINGS
+         ===================================================== -->
+
     <meta charset="UTF-8">
 
     <meta
@@ -10,25 +14,49 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Sohail Ahmed | Business & Data Analyst</title>
-
     <meta
         name="description"
-        content="Sohail Ahmed - Business Analyst and Data Analyst"
+        content="Sohail Ahmed - Business Analyst and Data Analyst Portfolio"
     >
 
-    <!-- Main CSS -->
+    <meta
+        name="author"
+        content="Sohail Ahmed"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0b3b70"
+    >
+
+    <title>
+        Sohail Ahmed | Business Analyst & Data Analyst
+    </title>
+
+
+    <!-- =====================================================
+         SECTION CSS FILES
+         ===================================================== -->
+
     <link rel="stylesheet" href="css/main.css">
 
-    <!-- Section CSS -->
     <link rel="stylesheet" href="css/navbar.css">
+
     <link rel="stylesheet" href="css/hero.css">
+
     <link rel="stylesheet" href="css/about.css">
+
     <link rel="stylesheet" href="css/skills.css">
+
     <link rel="stylesheet" href="css/education.css">
+
     <link rel="stylesheet" href="css/experience.css">
+
     <link rel="stylesheet" href="css/projects.css">
+
     <link rel="stylesheet" href="css/contact.css">
+
+    <link rel="stylesheet" href="css/footer.css">
 
 </head>
 
@@ -36,17 +64,44 @@
 <body>
 
     <!-- =====================================================
-         ALL WEBSITE SECTIONS ARE LOADED HERE
+         WEBSITE ROOT
+
+         JavaScript will load:
+
+         navbar.html
+         hero.html
+         about.html
+         skills.html
+         education.html
+         experience.html
+         projects.html
+         contact.html
+         footer.html
+
+         into this element.
          ===================================================== -->
 
-    <main id="page"></main>
+    <main id="page">
+
+        <!-- Loading message shown briefly while sections load -->
+
+        <div id="loading-screen">
+
+            <p>Loading portfolio...</p>
+
+        </div>
+
+    </main>
 
 
     <!-- =====================================================
-         JAVASCRIPT
+         MAIN JAVASCRIPT
          ===================================================== -->
 
-    <script src="js/main.js"></script>
+    <script
+        src="js/main.js"
+        defer
+    ></script>
 
 </body>
 
