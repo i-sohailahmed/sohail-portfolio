@@ -1,83 +1,690 @@
-.hero {
-    background: #ffffff;
-    min-height: 600px;
+/* =========================================================
+   HERO SECTION
+   PC + TABLET + MOBILE FRIENDLY
+   ========================================================= */
 
-    display: flex;
-    align-items: center;
+
+/* =========================================================
+   HERO MAIN SECTION
+   ========================================================= */
+
+.hero {
+    width: 100%;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #dce8f2;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
 }
+
+
+/* =========================================================
+   HERO CONTAINER
+   ========================================================= */
 
 .hero-container {
-    max-width: 1200px;
     width: 100%;
+    max-width: 1200px;
+
+    min-height: 560px;
+
     margin: 0 auto;
-    padding: 80px 30px;
+
+    padding: 90px 50px 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    box-sizing: border-box;
 }
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
 
 .hero-content {
-    max-width: 800px;
+    width: 100%;
+    max-width: 760px;
+
+    margin: 0;
 }
 
-.hero-intro {
+
+/* =========================================================
+   GREETING
+   ========================================================= */
+
+.hero-greeting {
+    margin: 0 0 20px;
+
     color: #155a9c;
+
     font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
+
+    font-weight: 700;
+
+    line-height: 1.4;
 }
 
-.hero h1 {
+
+/* =========================================================
+   NAME
+   ========================================================= */
+
+.hero-name {
+    margin: 0 0 18px;
+
     color: #0b3b70;
-    font-size: 64px;
-    line-height: 1.1;
-    margin-bottom: 15px;
-    text-transform: uppercase;
+
+    font-size: clamp(58px, 7vw, 88px);
+
+    font-weight: 800;
+
+    line-height: 0.98;
+
+    letter-spacing: -2px;
 }
 
-.hero h2 {
-    color: #1f2937;
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 25px;
+
+/* =========================================================
+   PROFESSIONAL TITLE
+   ========================================================= */
+
+.hero-title {
+    margin: 0 0 25px;
+
+    color: #111827;
+
+    font-size: clamp(30px, 4vw, 46px);
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.8px;
 }
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
 
 .hero-description {
-    max-width: 700px;
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 0 32px;
+
     color: #4b5563;
+
     font-size: 18px;
+
     line-height: 1.7;
-    margin-bottom: 35px;
+
+    font-weight: 400;
 }
+
+
+/* =========================================================
+   BUTTON CONTAINER
+   ========================================================= */
 
 .hero-buttons {
     display: flex;
-    gap: 15px;
+
+    align-items: center;
+
+    gap: 18px;
+
     flex-wrap: wrap;
 }
 
-.btn {
-    display: inline-block;
-    padding: 13px 25px;
+
+/* =========================================================
+   BUTTON BASE
+   ========================================================= */
+
+.hero-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding: 0 24px;
+
+    border-radius: 3px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    border-radius: 4px;
-    transition: 0.2s ease;
+
+    box-sizing: border-box;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
 
-.btn-primary {
-    background: #0b3b70;
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.hero-btn-primary {
     color: #ffffff;
-}
 
-.btn-primary:hover {
-    background: #155a9c;
-}
+    background: #0b3b70;
 
-.btn-secondary {
-    background: #ffffff;
-    color: #0b3b70;
     border: 2px solid #0b3b70;
 }
 
-.btn-secondary:hover {
-    background: #eaf3fa;
+
+.hero-btn-primary:hover {
+    background: #155a9c;
+
+    border-color: #155a9c;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.hero-btn-secondary {
+    color: #0b3b70;
+
+    background: #ffffff;
+
+    border: 2px solid #0b3b70;
+}
+
+
+.hero-btn-secondary:hover {
+    color: #ffffff;
+
+    background: #0b3b70;
+
+    border-color: #0b3b70;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HERO STATS
+   ========================================================= */
+
+.hero-stats {
+    width: 100%;
+
+    background: #eef6fb;
+
+    border-top: 1px solid #dce8f2;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   INDIVIDUAL STAT
+   ========================================================= */
+
+.hero-stat {
+    min-height: 170px;
+
+    padding: 35px 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+
+/* Vertical separators */
+
+.hero-stat + .hero-stat {
+    border-left: 1px solid #dce8f2;
+}
+
+
+/* =========================================================
+   STAT NUMBER
+   ========================================================= */
+
+.hero-stat strong {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #0b3b70;
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   STAT DESCRIPTION
+   ========================================================= */
+
+.hero-stat span {
+    display: block;
+
+    color: #4b5563;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media screen and (max-width: 900px) {
+
+    .hero-container {
+        min-height: 500px;
+
+        padding: 75px 35px 65px;
+    }
+
+
+    .hero-name {
+        font-size: 64px;
+    }
+
+
+    .hero-title {
+        font-size: 34px;
+    }
+
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+
+    .hero-stat {
+        min-height: 150px;
+
+        padding: 30px 20px;
+    }
+
+
+    .hero-stat strong {
+        font-size: 36px;
+    }
+
+
+    .hero-stat span {
+        font-size: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    .hero {
+        width: 100%;
+
+        max-width: 100%;
+
+        overflow: hidden;
+    }
+
+
+    /* Main hero */
+
+    .hero-container {
+        width: 100%;
+
+        max-width: 100%;
+
+        min-height: auto;
+
+        padding: 70px 24px 65px;
+
+        margin: 0;
+
+        display: block;
+
+        box-sizing: border-box;
+    }
+
+
+    /* Content */
+
+    .hero-content {
+        width: 100%;
+
+        max-width: 100%;
+
+        margin: 0;
+    }
+
+
+    /* Greeting */
+
+    .hero-greeting {
+        margin-bottom: 16px;
+
+        font-size: 16px;
+
+        line-height: 1.4;
+    }
+
+
+    /* Name */
+
+    .hero-name {
+        width: 100%;
+
+        margin-bottom: 20px;
+
+        font-size: clamp(44px, 13vw, 62px);
+
+        line-height: 0.98;
+
+        letter-spacing: -1.5px;
+
+        overflow-wrap: normal;
+    }
+
+
+    /* Professional title */
+
+    .hero-title {
+        width: 100%;
+
+        margin-bottom: 22px;
+
+        font-size: clamp(27px, 7vw, 36px);
+
+        line-height: 1.2;
+
+        letter-spacing: -0.5px;
+    }
+
+
+    /* Description */
+
+    .hero-description {
+        width: 100%;
+
+        max-width: 600px;
+
+        margin-bottom: 28px;
+
+        font-size: 16px;
+
+        line-height: 1.65;
+    }
+
+
+    /* Buttons */
+
+    .hero-buttons {
+        width: 100%;
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 12px;
+    }
+
+
+    .hero-btn {
+        min-height: 48px;
+
+        padding: 0 18px;
+
+        font-size: 13px;
+    }
+
+
+    /* Stats */
+
+    .hero-stats {
+        width: 100%;
+
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    .hero-stat {
+        min-height: 145px;
+
+        padding: 25px 10px;
+    }
+
+
+    .hero-stat strong {
+        margin-bottom: 10px;
+
+        font-size: 34px;
+    }
+
+
+    .hero-stat span {
+        font-size: 13px;
+
+        line-height: 1.45;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+
+    .hero-container {
+        padding: 58px 20px 55px;
+    }
+
+
+    /* Greeting */
+
+    .hero-greeting {
+        margin-bottom: 14px;
+
+        font-size: 15px;
+    }
+
+
+    /* Name */
+
+    .hero-name {
+        margin-bottom: 18px;
+
+        font-size: clamp(42px, 14vw, 55px);
+
+        line-height: 1;
+    }
+
+
+    /* Title */
+
+    .hero-title {
+        margin-bottom: 20px;
+
+        font-size: 28px;
+
+        line-height: 1.25;
+    }
+
+
+    /* Description */
+
+    .hero-description {
+        margin-bottom: 26px;
+
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+
+    /* Buttons */
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+
+    .hero-btn {
+        min-height: 47px;
+
+        padding-left: 16px;
+        padding-right: 16px;
+
+        font-size: 12px;
+    }
+
+
+    /* Stats */
+
+    .hero-stat {
+        min-height: 135px;
+
+        padding: 22px 7px;
+    }
+
+
+    .hero-stat strong {
+        font-size: 30px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .hero-stat span {
+        font-size: 12px;
+
+        line-height: 1.4;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media screen and (max-width: 360px) {
+
+    .hero-container {
+        padding-left: 16px;
+        padding-right: 16px;
+
+        padding-top: 50px;
+        padding-bottom: 48px;
+    }
+
+
+    .hero-greeting {
+        font-size: 14px;
+    }
+
+
+    .hero-name {
+        font-size: 40px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .hero-title {
+        font-size: 25px;
+    }
+
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+
+    .hero-btn {
+        min-height: 45px;
+
+        padding-left: 13px;
+        padding-right: 13px;
+
+        font-size: 11px;
+    }
+
+
+    .hero-stat {
+        min-height: 125px;
+
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+
+    .hero-stat strong {
+        font-size: 27px;
+    }
+
+
+    .hero-stat span {
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   REMOVE DESKTOP-ONLY LINE BREAKS ON MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    .desktop-break {
+        display: none;
+    }
+
 }
